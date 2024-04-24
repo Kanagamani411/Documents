@@ -1,0 +1,4 @@
+structured data - mysql
+email password should be unique 
+
+in mongodb data will be document.

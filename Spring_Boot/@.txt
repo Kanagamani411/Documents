@@ -1,0 +1,18 @@
+Springboot:
+ it provides dependancy and configuration to spring framework.
+ ur jar file have a embedded tomcat server
+
+dependancy injection:
+  achieving loose coupling.
+  spring container create obj that inject into our class.
+  
+@componant:
+ specified up the class which makes  it dependant
+@autowired
+
+@controller:
+    it accept the request.
+ @requestMapping:
+     
+in sb we dont need external server to run the proj. bcs we have maven dependancy.
+

@@ -1,0 +1,24 @@
+OopsByKunal:
+
+data types : rollno, name, salary....
+
+
+Class:
+  Class is a template/bluePrint of the object.
+  It is a logical entity.
+  it doesn't occupy space in memory.
+
+Object:
+  Object is an instance of the class.
+  it is a real world entity.
+  it occupis space in memory.
+
+  3 essential properties:
+     1.state
+     2.identity
+     3.behaviour
+
+Dot operator:
+   It is used to separate a variable and method from a reference variable. 
+   The member access (dot) operator (“.”) is used frequently to access a field or to call a method on an object.
+

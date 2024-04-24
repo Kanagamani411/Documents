@@ -1,0 +1,5 @@
+Git and Github allows us to maintain the history of the project and 
+at what particular time which persion made which chnage where in the project.
+git doing that.
+
+Git is a version control ,allowing us to host our projects and the people arround the world can share, look, contribute.

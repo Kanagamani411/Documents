@@ -1,0 +1,28 @@
+why react:
+   used to build user interface, and reusable ui Componant.single page application.
+   used to develop large web application that vwe can change the data without reloading the page.
+what react:
+   java script library.
+how to connect backend with react:
+   export default app
+   npm run dev
+how to create react proj:
+   npx crete-react-app react-project-1
+components:
+   are independant and reusable bits of code.(nav bar, foot, heater, tweet,)
+   2 types
+   class and function component.
+class component:
+    this method contain extends React.component statement.
+    this statement create inheritance to react.
+    the component requires render() method, this method return html.
+function component:
+    is a simple javascript function that accepts props and return react elements.
+render():
+    this is a function used to display the specified html code inside html element.
+props:
+    properties
+    it pass the data one component to another as an argument.
+state:
+    stae object holds the value belongs to the component
+

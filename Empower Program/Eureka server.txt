@@ -1,0 +1,89 @@
+Eureka server:
+port 8761
+
+register microservices and monitor whether its running or not.over internet.
+different mcroservices we can register on same server
+will give status of your apllication and which port which microservice running when you have multiple microservices.
+
+Api gateway
+runs on netty server
+runs on 8085
+centralized entrypoint to the microservices.
+entry point of services and it can block the ip address/ restrict. if it is not received specific req from client it will give 404.
+
+
+when we have multiple endpoint we cannot handle manually.
+so we use swaggar.
+
+rabbitmq:
+messaging queu library for microservice communicatuin
+
+kafka:
+fault tolerance, scalability
+open sourse distrubuted streaming platforn.
+message broker.
+we dont use database it be we heavy so use highthrouput.
+
+kafka cluster: is a group of kafka broker eorking together to handle the data.
+skafka broker: it is a server responsible for storing and managing data.
+Topic: contains the multiple data.(order topic)
+       stream of record.
+
+publisher/producer -> user
+consumer  -> subscriber
+partition
+Zookeeper- is a service which manage kafka server/             cluster
+
+
+
+
+In the Windows Terminal window, type: tar -xvzf  -C C:\extract\here. Replace C:\file\path\to\file with the correct file path for the TGZ file and C:\extract\here to the correct folder to place the extracted files.
+
+
+RestTemplate:
+no need dependency only web enough
+
+feignclints->pagable
+secretkey 'headers.
+
+AOP:
+aspect
+advice
+joinpoint
+after before around
+
+cache :
+temporary memory. we can call data from chache instead hitting main database all the times.
+2 dependency:
+cache
+ecache
+
+Html -> sceleton
+css -> style
+
+Html,css,javascript are client side language.
+
+static server:
+http
+live server
+
+hero unit contain image/text/crowser-image changing by intervel
+
+css - box model
+
+fav icon
+
+1 jan
+8 jan
+
+var global works inside function
+let inside for loop.
+
+== only check value not datatype
+=== check value plus datatype.
+
+npm init
+npm i --save bootstrap
+
+
+

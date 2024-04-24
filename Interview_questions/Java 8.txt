@@ -1,0 +1,95 @@
+Java 8:
+
+Lambda function:
+   lambda function is an anonymous function.
+   anonymous function-> a method has no name and modifier.
+   lf only applicable for functional interface.
+syntax:
+()->{}
+parameter expression methodbody
+
+Note:
+Abstract method:
+
+Interface:
+
+modifiers:
+
+Function Interface:
+  The interface who contains only one abstract method and can have multiple default and static methods known as FI.
+
+Ex:
+
+Runnable ->run()
+Callable ->call()
+Comprable ->compareTo()
+Comarator ->compare()
+
+these 4 are the interfaces in FI.They contain one method.
+
+Ex:
+@FunctionalInterface   //optional
+public interface Demo {
+	void add();   //should have only one abstract method
+	//can have multiple default and static methods
+	default void add1() {
+		System.out.println("1");
+	}
+	default void add2() {
+		System.out.println("2");
+	}
+	static void add3() {
+		System.out.println("3");
+	}
+	static void add4() {
+		System.out.println("4");
+	}
+}
+
+package functionalInterfacepack;
+
+public interface Calculator {
+
+	void switchon();
+}
+
+public class CalculatorImpl{
+/*
+	//traditional method
+	@Override
+	public void switchon() {
+		// TODO Auto-generated method stub
+		
+	}
+*/
+	
+	
+	public static void main(String[] args) {
+		Calculator cal = ()->{
+			System.out.println("switchOn");
+		};
+
+		cal.switchon();
+	}
+}
+
+My observation:
+->FI class can have main method and there we can call abstract method using LF.
+ex:
+
+package functionalInterfacepack;
+
+public interface Calculator {
+
+	void switchon();
+	/*public static void main(String[] args) {
+		Calculator calc = ()->{
+			System.out.println("hi");
+			
+		};
+	    calc.switchon();
+	}
+	*/
+}
+
+

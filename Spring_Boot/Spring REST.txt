@@ -1,0 +1,48 @@
+REST API:
+   An Architectural style called REST(representational state transfer) advocates that web applications should use HTTP.
+
+It is stateless, completely isolated request. It is easier to catch and load-balance. 
+
+client send a request to the rest server through internet the server will read the req and then send  a response to the client.
+C- POST, R- GET, U - PUT, D - DELETE.(HTTP having)
+
+Each resource will identified by Unique Identifier URI.
+
+if i map restcontroller in any controller by default it handles the json obj as req or response.
+
+if we put an obj that will be convert in json and return as json
+
+LOad balancer:
+    in this method we distributing the application's user traffic evenly to the servers
+    inside loadbalancer there r some algorithm based on this request send to the server
+    (round robin, least connection, source ip hash, random, least traffic).
+
+
+
+
+GET:
+ 
+
+
+Spring Security:
+  Provide security for spring application(web level security).
+LDAP
+Bcrypt-save password
+
+login and logout:
+
+It provides Authendication and authorisation
+
+Authentication:
+ who r u user name and password
+
+@EnableWebSecurity
+
+for default security we have to mention username and password in application.properties
+spring.security.user.name = kax
+spring.security.user.password = password
+
+Role based security and url based security.
+
+auth.inMemoryAuthendication().withUser("").password("").roles("ADMIN");
+

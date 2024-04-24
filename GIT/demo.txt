@@ -1,0 +1,3 @@
+This this for demo
+
+gcloud storage cp gs://qwiklabs-gcp-00-994512c6c64d/*.svg .

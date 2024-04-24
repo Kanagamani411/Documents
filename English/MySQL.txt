@@ -1,0 +1,148 @@
+MySQL:
+  Mysql is Relational database management system. It is used to store the data relation manner.
+
+Database:
+  Database is a collection of data stored in a format that can be easily accessed.
+
+Keywords:
+
+create database dbname;
+show databases;
+use database dbname;
+drop database dbname;  ->delete the database
+use database dbname.tablename;
+
+
+Table:
+
+create table tablename;
+show tables;
+drop table tbname;
+desc tbname;   -> show table details 
+
+create table user(id int(11) primary key, name varchar(32) not null, city varchar(100));
+
+alter table oldtablename rename to newtablename;
+alter table user rename to student;
+
+truncate table student;
+
+insert into student (id,name,city) values(1,'kax','ramnad');
+insert into student values(2,'maha','tirunelveli');
+
+select * from student;
+
+alter table student add country varchar(100);
+
+Where:
+
+update table student set country='india' where id=1;
+select * from student;
+
+update student set city='chennai', country='india' where id=2;
+
+delete from student where id=1;
+
+select * from student where city='chennai';
+
+select name,city from student where country='india';
+
+select name as "USERNAME", city as "CITYNAME" from student;   ->change the coulmn name and show oly the mentioned columns
+
+select country from student; ->it will show only the country column.
+
+select distinct(country) from student;  ->show diferebnt country name but not repeated names.
+
+select * from students;
+
+And:
+select * from student where country='india' and city='chennai';
+
+select * from students where id>=5 and id<= 20;
+
+Or:
+select * from student where country='india' or city='chennai';
+select * from student where id=1 or id=5 or id=20;
+
+Between:
+select * from student where id between 5 and 20;
+
+In:
+select * from student where id in(2,5,20);
+
+Limit, offset:
+
+select * from student limit 4;
+select * from student limit 2 offset 2;
+
+Order By:
+
+select * from student order by name desc;
+select * from student order by name asc;
+select * from student order by name;  
+
+Order by , limit:
+
+select * from student order by id limit 2;
+
+update,set:
+
+update student set name='ram singh' where id = 20;
+
+Like ;
+
+select * from student where name like 'a%'; ->starting by a letter
+select * from student where city like '_u%'; -> second letter u
+select * from student where city like '%0_'; ->second last o letter
+
+
+functions:
+
+select SUM(id) from student;
+select SUM(id) as 'Avg Salary' from student;
+select AVG(id) from student;
+select MIN(id) from student;
+select COUNT(id) from student;
+
+select name from student where id=(select MIN(id) from student);
+
+Foreign key and Joins:
+
+create table laptop (lid int primary key, lname varchar(100), sid int, foreign key(sid), references student(id));
+
+insert into laptop values(25, 'HP', 2);
+insert into laptop values(30, 'DELL', 5);
+
+select student.id,student.name,laptop.lname from student,laptop where student.id=laptop.sid;
+
+select student.id,student.name,laptop.lname from student,laptop where student.id=laptop.sid and student.name='ankit';
+
+select student.id,student.name,laptop.lname from student inner join laptop on student.id=laptop.sid;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

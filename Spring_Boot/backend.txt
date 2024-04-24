@@ -1,0 +1,39 @@
+controller
+
+@RequestMapping("/")
+public class MovieListController {
+  @Autowired
+  private MovieListRepository movieListRepository;  ->creating obj for interface
+  @Requestmapping(method=RequestMethod.GET, value="/movies/{actor}")
+  public String getMovieListByActor(@PathVariable("actor") String name, Model model)
+  {
+     creating arraylist for Movie
+     Movie movie= new Mvie();
+     movie.setActor("tom");
+
+     movieListRepository.findMoviesByActor(name);
+     return Movielist;
+
+  }
+
+  @RequestMapping(method=RequestMethod.POST, value="/movies", consumes="application/json")
+  public ResponseEntity<object> addMovie(@RequestBody Movie movie) {
+     
+        return null;
+
+
+model
+ class Movie
+      string name;
+      string actor;
+      getter ans setters
+
+repository(interface)
+Jparepository
+
+public interface PensionerDetailRepository(MovieListRepository extends JpaRepository<PensionerDetail(Movie), String(Long)>
+
+ {
+    List<Movie> findMoviesByActor(String name);
+ }
+

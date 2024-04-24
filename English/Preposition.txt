@@ -1,0 +1,11 @@
+In/On/At
+
+On -> days->monday
+In -> year/month
+at -> time
+
+on for specific like 17/ aug 2000
+
+country/city -> in
+Street
+building

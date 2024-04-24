@@ -1,0 +1,64 @@
+Design Pattern:
+reusable solution to solve common software design problems.
+
+types:
+creational
+   deal with object creation.
+
+   singleton,
+   factory- among multiple class , subclass choose which class should be called based on the requirement.,
+   abstract-abstract over factory. , 
+   builder- complext object created step by step so we actuall retun an object.,
+   prototype pattern- object creation is costly so this pattern provide the machanism of copy the original obj to new obj so that we can modify it occording to our needs.
+
+structural
+   provide a way to create a class structure of the program (using inheritance, composition to cfreate a large object from small obj.)
+
+  adapter - object that joined the unrelated interface/ work together. eg: interfaces in jdbc
+  bridge - 
+  proxy- when we want to provide contol to the functionality.
+  composite - group of objects treated the same way as a single instance of the same type of object.
+  decorator- used to modify the functionlity  at runtime. another object not affected when multiple obj over single object modify.
+
+  flyweight- an obj minimizes its memory usagr by sharing some of its data with other similar object.
+eg:spring tool implementation
+  
+
+behavioural
+  provides better solution for interaction between the objects. and provide loosely coupled and flexibility to extend the application.
+
+restrict the instantiation of a class and ensures
+throughout the program we use single object.
+-singleton
+
+Behaviour dp:
+   interact with objects
+   provide better interaction between objects and provide fflexibilty by loosely coupled.
+
+   chain of responsibility pattern- used to acheive loosely coupled..
+   command p- request response(invoker pass the comand to specific member)
+   mediator- work as a router bet obj.
+   Observer - one to many dependency ,
+   memento-
+   Null obj-.
+   strategy- eg:comparator, collection.sort method.
+   state-obj change the behavoir based on the internal state.
+
+ -SOLID Principle
+
+   single responsibility prin- a class should have only one reason to change, that it shoud have only one responsibility or job eg: chain of responsibilty
+single type of response
+
+   open/closed prin- class /objects/entities should be open for extension but close for modification.
+we should use inheritance for this.
+
+   LIskov substitution- obj of super class should be replaced with obj of sub class without affecting the correctness of the program.
+
+   interface segaration- small specific functionality interface. A client should not be forced to depend on the interface that use,instead of this we should focuss on the creation of small, specific interfaces.
+
+   dependency inversion- they should depend on abstract/interface.on one class no depend on other class reduce change not affect other class. 
+
+loosely coulped easily maintained,scalability.
+
+
+

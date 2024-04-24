@@ -1,0 +1,27 @@
+js is a programming language used to mkae webpages interactive.
+interpreted language.
+console.log('hello');
+runs on client side(browser,computer)
+script language, ight weight.
+
+browser- chrome
+text editor- sublime
+
+what can i do with js:
+  responsive
+  interactive
+  create cookies- (store data)
+  detect user, other info
+  validate forms
+  create animations,slideshow,
+  build apps- advanced
+
+Lets code:
+
+use <script> key word.
+<script>
+  alert(" ");
+</script>
+
+
+

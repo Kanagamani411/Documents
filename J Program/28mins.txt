@@ -1,0 +1,19 @@
+Java:
+
+Variables:
+
+how to name a variable:
+ -> can have combinationation of letters,numbers, $,_
+ -> camel cases
+ -> no kew words allowed.
+ ->no limit for letters.
+
+How variable stored in memory:
+  int a = 10;
+  int b = 20;
+  memory location   name    value
+     2000            a        10  
+     2004            b        20
+
+
+Types of variable:

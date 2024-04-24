@@ -1,0 +1,42 @@
+Arrays&Arraylists:
+
+Array:
+ Array is used to store collections of data  elements.
+ we can store only homogenius data types.
+
+Syntax:
+ datatype[] arrayname = new datatype[];
+ int[] rollno = new int[5];
+ int[] rollno2 = {1,2,3,4,5};
+
+//we cannot do like rollno = {1,2,3,4,5} we can do it in initializr itself.
+
+ rollno1[0] = 1;
+ rollno1[1] = 2;
+ rollno1[2] = 3;
+ rollno1[3] = 4;
+ rollno1[4] = 5;
+ 
+int[] rollno;        //declaring array rollno referance variable is defined in stack memory.
+                       this thing happen compile time. static memory allocation.
+rollno = new int[5]; //initialization  object is being created in heap memory. runtime.dynamic memory allocation.
+
+new -> new is a keyword and it is used to create an object.
+
+stack memory
+   used to store reference variable,functions
+   it is linear data structure so it it is continuous.
+heap memory
+   used to store java objects
+   not continuous but hierarcical.
+
+null:
+  null is a special literal
+  we can assign null value for non primitives
+ex:
+  String str = null;
+  
+  it doesnt occupy space in memory.
+
+
+

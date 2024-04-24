@@ -1,0 +1,192 @@
+What is Spring Framework?
+
+ Spring is java EE framework used to build the web applications and enterprise applications.
+ spring is popular for several reasons,
+ Dependency injection approach
+ it provides powerful database transaction management
+ integration with other java frameworks like hibrante
+ web MVC framework for building web applications as well as restful webservices.
+
+1.What is Spring boot? and What problrm spring boot solves?
+
+ The main goal of the spring boot is quickly create production ready spring based applications
+ without requiring developers to write the same boilerplate configuration again and again.
+
+ Spring boot automatically configure all the configuration when we add dependency/jar in our classpath.
+ ex:
+  when we use spring mvc we need to configure,
+      Component scan, dispatcher servlet, view resolver, web jars(for delivering static contents) among other things.
+  when we use hibernate/jpa
+      datasourse, entity manager factory/session factory, transaction manager among a host of other things
+  when we use cache
+      Cache configuration.
+
+ Spring boot is a extension of spring framework. which eliminates boilerplate configuration to setup spring based application.
+ Springboot provides(key features),
+ Spring boot starters,
+ spring boot autoconfiguration,
+ externalized configuration
+ spring boot actuator
+ easy to use embedded servlet container support.
+   
+2.Explain few important spring boot key features?
+
+ Spring boot starters:
+   application quickly starts with commonly used tecknology like mvc,jpa,web,mongodb,spring security....
+   these dependency are pre / free ? configured with most commonlu used libraries and maintaining compatible versions.
+
+   Spring-boot-starter-data-jpa:
+   whenever we add this dependency in springboot application it allowed all the required dependency to use spring data jpa along with hibernate.
+
+   Spring-boot-starter-web:
+   whenever we add this dependency in springboot application it will by default pull all the commonly used libraries while 
+   developing spring average applications such as spring mvc, web mvc, jackson json library validation api and tomcat server.
+   Two imp features:
+   It is compatible for web development
+   Auto configuration.
+   
+ spring boot autoconfiguration
+   Sprin boot auto-configuration attempts to automatically configure your spring application based on the
+   jar dependency that you have added in your class path.
+
+ externalized configuration
+   this is useful whenever we want to deploy our application in diferent environments.
+   enable the developer work with the same application in diferent environment.
+   dev environment,qa envi,production envi.
+   so we can use the properties file/yaml file to maintain the configuration. sprinboot provide diferent configuration files for dif envi.
+   u can use @Valule, @ConfigurationProperties annotation to read the values from the properties file or yaml file into spring bean configuratin.
+
+ spring boot actuator:
+    provides lots of rest endpoints to monitor lot of confi details, envi details, healthcheck,matrix lot of things using sba.
+    provides wide variety of production ready features without requiring the developer need to write much code.
+    We can use SBA,
+    -view the application bean configuration details
+    -view the appication URL mappings   
+    -view environment details
+    -view configuration parameter values
+    -view the registered health check metrics
+
+ Easy to use embedded servlet container support 
+     Dont need to download tomcat server externally, when we choose jar application tomcat server automatically 
+     provide as a default embedded servlet container. whenever we use stRTER web dependency then automatically include
+     embedded tomcat as a embedded servlet container. so whenever we run Sb application as standalone it will run port 8080.
+     we dont need create external war files and depoy  external tomcat server.we can make it jar file and run as standalonbe.
+
+3.What is Spring boot auto configuration?
+
+4.How spring boot internally works or Explain run() method in spring?
+     -SB application execution will start from main() method
+     -main() method internally call SpringApplication.run() method
+     -SpringApplicatio.run() method performs bootsrapping(loading) for our springboot application
+     -Starts stopwatch to identify time taken to bootstrap the SB application
+     -prepares envi to run our Sb application(dev,prod,qa,uat)
+     -print banner(Spring boot logo prints on console)
+     -start the IOC container(application context) based on the classpath (defau;lt,web servlet/reactive)
+     -refresh context
+     -Triggers Runners(ApplicationRunner or CommandLineRunner)
+     -Return AplicationContext reference(spring IOC)
+
+5.What are different ways to create a springboot appliction?
+     -using spring initializr
+         start.spring.io
+         spring initializr is website u can use it for create  a spring appication quickly.
+         this is basically a standard way and we can integrate this project/plugin in any ide using plugins.
+
+     -using spring starter project in STS(Eclipse)
+         in service url :https://start.spring.io
+         spring team has integrated spring initializr in STS
+         It reduce the some manual steps and reduce time.
+
+     -Spring boot CLI(command line interface)
+          -the spring boot CLI is a command line tol that you can use it if you want to quickly
+           develop a spring application.
+
+           first the spring boot CLI can be installed manually by using SDKMAN!(SDK Manager)
+           then using some commands (refer websites)
+
+6.Explain @SpringBootApplication, @Configuration and @ComponentScan annotations?
+     @SpringBootApplication:
+          It is a very importnt annotation, it is defined in the main/starter class
+          @SpringBootApplication annotation is a combination of @SprigBootConfiguration + @EnableAutoConfiguration + @ComponentScan
+          @SpringBootConfiguration internally having @Configuration annotation.
+
+     @Configuration:
+          there is 3 confi(xml,java,annotation)
+          we use this @configuration for provide a java based configuration. 
+          basically we create java class and we annotated that java class with @Configuration annotation and then 
+          that java class become configuration class.and we can define all spring related configuration in that class.
+          ex:
+            @Configuration
+            public class SpringConfig{
+
+                    //we can define/configure "beans" inside this class.
+            }
+         
+     @EnableAutoConfiguration:
+         this annotation enable autoconfiguration classes in springboot applications.
+         whenever springboot finds (spring starter web) dependency in our classpath
+         this annotation enable dispatcherservlet auto configuration, view resolver auto configuration class etc.
+
+     @ComponentScan:
+        use this annotation to scan spring components in a particular package
+        it will search in main package ang also sub packages.
+   
+        @Component
+        - this annotatin is used to denote the class as a component class.
+          spring framework will autodetect (our custom beans) these classes for 
+          dependency injection when annotation based configuration and classpath scanning is used.
+
+        public clas SpringComponent {
+             public String getMessage() {
+                 return  "hello world";
+
+               // here SpringComponnet is a bean
+             }
+        }
+        whenever we add @Component on the top of the any class that class become spring component.
+        and @ComponentScan will scan for this componnent. during our application startup it scan the componnet and then register it
+        spring application context or spring IOC container.
+
+        Diference btw @Componnet and @ComponentScan
+        @Component:
+            indicates this class might be a candidate for creating bean
+        @ComponentScan:
+            is searching packages for components.
+
+       @SpringbootApplication
+       public class HotelReservationApplication {
+
+	    public static void main(String[] args) {
+		ConfigurableApplicationCntext applicationContext = SpringApplication.run(HotelReservationApplication.class, args);
+            SpringComponnet component = applicationContext.getBean(SpringComponent.class);
+            System.out.println(component.getMessage);
+            
+	   }
+      }
+
+
+7.What is spring boot starters and name few important spring boot starter dependencies?
+     -
+
+
+i dont want to say any excuses  
+i made all the arrangements but
+but last min i got infection
+sorry prakash I wil try come on thus
+and friday if not definitely come on monday and tuesday.
+
+
+
+
+
+
+
+     
+     
+
+
+
+
+
+
+

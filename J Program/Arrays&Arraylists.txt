@@ -1,0 +1,182 @@
+Arrays&Arraylists:
+
+Array:
+ Array is used to store collections of data  elements.
+ we can store only homogenius data types.
+
+Syntax:
+ datatype[] arrayname = new datatype[];
+ int[] rollno = new int[5];
+ int[] rollno2 = {1,2,3,4,5};
+
+//we cannot do like rollno = {1,2,3,4,5} we can do it in initializr itself.
+
+ rollno1[0] = 1;
+ rollno1[1] = 2;
+ rollno1[2] = 3;
+ rollno1[3] = 4;
+ rollno1[4] = 5;
+ 
+int[] rollno;        //declaring array rollno referance variable is defined in stack memory.
+                       this thing happen compile time. static memory allocation.
+rollno = new int[5]; //initialization  object is being created in heap memory. runtime.dynamic memory allocation.
+
+new -> new is a keyword and it is used to create an object.
+
+stack memory
+   used to store reference variable,functions
+   it is linear data structure so it it is continuous.
+heap memory
+   used to store java objects
+   not continuous but hierarcical.
+
+Array:
+collection of datatype.
+array contains homogeneous data
+array elements stored based on indices
+declaring array size must during initialization.
+we can change the array element like arr[3] = 100;
+
+
+array name stored in stack memory
+array objects created on heap memory
+in java array objects internally may not be continuous.
+ -it depends on jvm.
+
+
+Notes:
+null:
+  null is a special literal
+  we can assign null value for non primitives
+ex:
+  String str = null;
+  
+  it doesnt occupy space in memory.
+
+new-> new is a keyword used to create an object.
+
+Array:
+
+//3 ways of printing an array:
+
+Scanner in = new Scanner(System.in);
+		int[] arr = new int[5];
+		
+		System.out.println("print 5 integers");
+		for(int i=0;i<arr.length;i++) {
+			arr[i] =in.nextInt();
+		}
+		
+		//#1
+		for(int i=0;i<arr.length;i++) {
+			System.out.println(arr[i] + " ");
+		}
+		
+		//#2
+		for(int num:arr) {
+			System.out.println(num + " ");
+		}
+		
+		//#3
+		System.out.println(Arrays.toString(arr));
+	
+
+
+Array Passing function:
+public class PassingFunction {
+
+	public static void main(String[] args) {
+		int[] nums = {10,20,30,40};
+		change(nums);
+		System.out.println(Arrays.toString(nums));
+	}
+	static void change(int[] arr) {
+		arr[0] = 5;	
+	}
+}
+
+2d Array:
+
+public class TwoDArray {
+
+	public static void main(String[] args) {
+		int[][] arr = new int[3][3];
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				arr[i][j] = i+j;
+			}
+		}
+		//4ways of printing 2d arrays
+		//1
+		System.out.println(Arrays.deepToString(arr));
+		//2
+		for(int[] row:arr) {
+			System.out.println(Arrays.toString(row));
+		}
+		//3
+		for(int[] row1:arr) {
+			for(int x:row1) {
+				System.out.println(x);
+			}
+		}
+		
+		//4
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.println(arr[i][j]);
+			}
+		}
+		
+		//5
+		for(int i =0;i<arr.length;i++) {
+			System.out.println(Arrays.toString(arr[i]));
+		}
+	}
+}
+
+ArrayList:
+
+ArrayList<Integer> list = new ArrayList<>();
+ArrayList<Integer> list = new ArrayList<>(5); -> 5 is size of AL , initializing arrayList size is not mandatory.
+                                              -> we can add elements more than the AL size.
+
+ex:
+list.add(10);
+list.add(20);
+list.add(30);
+list.add(40);
+list.add(50);
+list.add(60);
+list.add(70);
+
+list.get(0)  -> index
+
+list.remove(2)  -> index
+
+list.set(0,5)  ->index,element
+
+list.contains(20)  ->true  -20->element
+
+System.out.println(list);
+
+ArraList of ArrayList:
+
+Scanner in = new Scanner(System.in);
+
+ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+
+//initialization
+for(int i=0; i<3;i++){
+   list.add(new ArrayList<>());
+}
+
+// we have created 3 arrayLists inside list(arraylist).
+
+//add elements
+
+for(int i = 0;i<3;i++){
+   for(int j=0;j<3;j++){
+        list.get(0).add(in.nextInt());
+   }
+}
+

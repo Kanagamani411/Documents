@@ -1,0 +1,91 @@
+Java with Kunal:
+ 
+Primitives:
+
+public class Main{
+   
+   public static void main(String[] args) {
+
+       int a=64;
+       String b = "Naveen";
+       char c = 'k';
+       float d= 64.88f;
+       double e = 456897.5784;
+       long f = 34567892l;
+       boolean g = false;
+
+       Integer abi= 67; -> wrapper class.
+
+   }
+
+Inputs:
+
+Scanner input = new Scanner(System.in);
+int a = input.nextInt();
+System.out.println(a);
+
+note:
+int ab= 234_000_000;
+syso(ab);  -> underscore will be ignored but comma wont.
+
+Float will round the number. it wont be accurate.
+
+TypeCasting:
+
+int a = 257;
+float b = 67; op:67.0   it will automatically convert the integer to float
+
+conditions:
+lhs>rhs
+
+byte c = (byte)(a)  ->op:1 byte value 0 to 256. it gives the remainder
+
+java works on unicode vales.
+
+If, Else, Else if:
+
+
+Loops:
+
+use for oop when yoou know how many times program gonna run.
+use while loop when you dont know how many times program gonna run.
+use do while when you want to print the body atleast once.
+
+quest: Find the largest of the 3 numbers?
+
+For Loop:
+
+
+ascii code:
+a to z -> 97 to 122 
+A to Z -> 65 to 90
+
+Scanner sc = new Scanner(System.in);
+sc.next().charAt(0) used to get user input from user for characters.
+//char case1 = sc.next().trim().charAt(0);  ->trim is used to remove the extra spaces.
+sc.nextLine() used to get string
+sc.nextInt() used to get integer
+
+Switch Statements:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+JVM:
+  java virtual machine
+ compiler(javac compiler) compile the source code (.java file) into byte code(.class file) 
+ and then loader(interpreter) fetch the byte code into jvm then byte code verifier verifies the code
+ and execution executre then JIT(just in time) convert it to machine code then it comes as output.
+java independent language bcs bytecode created in windows can be run in linux.(wore)
+
+java.time:
+

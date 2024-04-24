@@ -1,0 +1,13 @@
+Route path: index.js 
+import {BrowseRouter, Routes, Route} from "react-router-dom";
+import App
+import Expenses
+import Invoices
+
+Link to : Parent - App.js-> {Link} from react-router-dom;
+insise <nav> add link to.
+
+we need to add Outlet for nested componet in parent.6
+
+
+

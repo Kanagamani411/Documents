@@ -1,0 +1,55 @@
+StreamApi:
+    A stream is not a collection where you can store elements.
+    Java streams enable functional-style operations on streams/sequence of elements.
+    A stream is not a data structure instead it takes input from the 
+    Collections, Arrays or I/O channels.
+    Streams don’t change the original data structure, they only provide the result as per the pipelined methods.
+
+notes: If we want to create a stream with multiple data with with multiple threads
+ you can use " parallelStream() ".
+it will create threats by itself.
+sometimes your values dependent previous operation that time u cant use parallelStream.
+
+notes: stream cannot be reused. it will not allow dataleackage.
+
+ex: create stream and call it:
+
+List<Integer> nums = Arrays.asList(3,2,11,10,1);   //create list
+ 
+Stream<Integer> data = nums.stream();           // convert list to stream
+
+data.forEach(n->System.out.println(n));        //call stream
+data.forEach(n->System.out.println(n));        //call stream again get error.
+
+
+Stream<Integer> sortedData = data.sorted();
+sortedData.forEach(n->System.out.println(n));
+
+
+Stream<Integer> data = nums.stream().filter(n->n%2==1).sorted().map(n->n*2); 
+
+List<Integer> data = nums.stream().filter(n->n%2==1).sorted().map(n->n*2).collect(Collectors.toList()); 
+
+    nums.stream()
+        .filter(n->n%2==1)
+        .sorted()
+        .map(n->n*2)
+        .forEach(n->System.out.println(n));
+   
+   int result = nums.stream()
+                    .filter(n->n%2==1)
+                    .sorted()
+                    .map(n->n*2)
+                    .reduce(0, (c,e)->c+e);
+   System.out.println(result);
+
+Reduce():
+    used to reduce the elements.
+    it takes 2 inputs and return 1 output.
+    
+
+Map:
+   use apply method
+   take 1 input return 1 output.
+
+

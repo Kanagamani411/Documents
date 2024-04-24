@@ -1,0 +1,34 @@
+
+interface VehiclePlan
+{  
+     void noOfEngine();
+     void noOfWheels();
+}
+
+abstract class Vehicle implements VehiclePlan
+{
+     public void noOfEngine()
+     {
+         System.out.println(" one engine");
+     }
+}
+
+class Car extends Vehicle
+{  
+     public void noOfWheels()
+     { 
+         System.out.println("4 wheels");
+     }
+}
+
+public class SenarioDemo
+{   
+    public static void main(String[] args)
+    {
+         Car car = new Car();
+      
+         car.noOfWheels();
+         car.noOfEngine();
+    }
+}
+         

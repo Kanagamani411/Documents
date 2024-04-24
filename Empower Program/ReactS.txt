@@ -1,0 +1,85 @@
+ReactS:
+product of facebook.
+
+virtual dom so it is faster
+use jsx method
+unidirectional flow
+single page application
+opensource js library.
+
+component:
+components are indepensent and reusable. same like js funtion but it returns html.
+
+
+1.class
+include extends react.cponnent so that it inherit react component. 
+class Car extends React.Componnet{
+render()
+}
+
+2. function
+function Car{
+render()
+}
+
+same as class but it is less code compare to class component.
+easy to handle.
+
+router:
+
+react router dom -> it enables the creation of single page web application that allows to navigate multiple pages without refresing the page.
+
+hooks:
+manage state and lifecyles
+we can use in function component only.
+it is called in
+
+
+useEffect
+
+
+useState
+
+useNavigate
+
+
+pure component:
+ render the same output for both state and props.
+
+stateful:
+
+props: props are used to pass the data from a parent component to chiid component
+props are immutable.
+
+state: it is use to manage the data within component. mutable and updates using setState.
+
+note: index.js all the things gets rendered first.
+
+Virtual dom -> virtual document object model.
+
+maintaining and updating user interface and application.
+
+
+higher oreder component:
+it is takes a component and return new component.
+
+form handling
+conditional rendering
+inline conditional rendering: ternary operator
+
+fragment:
+
+stateless and stateful componennt:
+
+stateful has state -> keep tracking on the data
+
+stateless return what given to props or they render always same thing.
+
+error boundary:
+
+
+day 24:
+assignment3:
+
+IAM -> create role -> name -> polies: health, customerrole ->create.
+create role2:  policies->web,workertier,multidocker

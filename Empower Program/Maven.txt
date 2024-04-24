@@ -1,0 +1,89 @@
+Maven:
+maven repository we can download repositories.
+mysql connector j
+
+model class:
+
+objects student, hobby
+Student class -> stu 1, stu 2 are objects.
+data
+tostring
+getter setter
+constructor with arguments
+
+in Pom.xml we add dependencies.
+
+dependency injection
+
+two methods
+1. constructor
+2. setter method
+
+ioc:
+call the bean
+
+in maven for configuration we use Xml in bean.xml
+in springboot project we use annotation configurations
+
+Springboot project:
+
+spring.io
+spring starter
+
+spring mvc
+api
+rest api
+
+client -->(req)  -->browser-->server return data in json/xml format.
+
+why json over xml
+what is rest
+
+Http methods/verbs
+
+req->Get/apt/product
+res-> [{id:1,nmae:lap}]
+
+Http status code:
+
+200 ok
+201 created
+400 bad req
+404 not found
+500
+502 bad gateway
+
+spring boot actuator:
+monitor our app, gathering metrics,sessions,health.
+ex:
+exposing endpoints
+http://8083/actuator/health  ->UP
+bean
+env -exclude
+
+
+getmapping->
+responsEntity->status code:200
+
+server.port=
+apring.appication.name=springRestDemo
+
+
+circular dependency
+
+soanar lint: plugin
+it shows the bad practice.
+
+jpa,h2.dev.web
+
+mapping object class with database is orm.
+
+Optional<>
+checks whether obj is present or not if present return value or return false but not return below err
+we can remove null poiter exeption.
+
+
+
+
+
+

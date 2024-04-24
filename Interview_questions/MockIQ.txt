@@ -1,0 +1,127 @@
+MockIQ
+
+React JS:
+
+pure component:
+ render the same output for both state and props.
+
+props: props are used to pass the data from a parent component to chiid component
+props are immutable.
+
+state: it is use to manage the data within component. mutable and updates using setState.
+
+var:
+a variable declared with var can work both globally and block level.
+if we declared outside a function it will accesible for the whole window. 
+if it is declared inside the funtion then it will be used inside a funtion.
+it can be re-declared and updated.
+
+let:
+it is block level. ex:{}
+it cant be re-declared but can be updated. 
+
+const:
+it is block level. ex:{}
+it maintains constant values
+it cant be re-declared and updated. 
+
+LocalStorage & SessionStorage:
+SessionStorage and LocalStorage are known as the web storage API. Data can be stored on the client side by using these APIs. 
+
+SessionStorage:
+SessionStorage is used for storing data on the client side.
+Maximum limit of data saving in SessionStorage is about 5 MB.
+Data in the SessionStorage exist till the current tab is open if we close the current tab then our data will also erase automatically from the SessionStorage.
+
+LocalStorage:
+Like SessionStorage, LocalStorage also used for storing the data on the client side.
+Maximum limit of data saving is about 5 MB in LocalStorage also.
+LocalStorage has no expiration time, Data in the LocalStorage persist till the user manually delete it. This is the only difference between LocalStorage and SessionStorage
+
+Responsiveness:
+Responsive Web Design is about using HTML and CSS to automatically resize a website.
+Responsive Web Design is about making a website look good on all devices (desktops, tablets, and phones):
+
+lifecycles of components:
+
+https://retool.com/blog/the-react-lifecycle-methods-and-hooks-explained
+
+Every React Component has a lifecycle of its own, lifecycle of a component can be defined as the series of methods that are invoked in different stages of the component’s existence. 
+
+Initialization: This is the stage where the component is constructed with the given Props and default state. This is done in the constructor of a Component Class.
+Mounting: Mounting is the stage of rendering the JSX returned by the render method itself.
+Updating: Updating is the stage when the state of a component is updated and the application is repainted.
+Unmounting: As the name suggests Unmounting is the final step of the component lifecycle where the component is removed from the page.
+
+Link:
+ The link component is used to create links to different routes and implement navigation around the application. It works like an HTML anchor tag.
+
+Routes:
+  Routes are chosen based on the best match instead of being traversed in order.
+
+Route:
+  Route is the conditionally shown component that renders some UI when its path matches the current URL.
+
+BrowserRouter:
+  BrowserRouter is a router implementation that uses the HTML5 history API(pushState, replaceState, and the popstate event) to keep your UI in sync with the URL. It is the parent component that is used to store all of the other components.
+
+Assync:
+  Async functions are a powerful feature in JavaScript that allow us to write cleaner, more readable code when handling asynchronous operations such as API calls, timeouts, and promises.
+
+What does async () do?
+In JavaScript, async is a keyword placed before a function to allow the function to return a promise.
+
+Jest:
+  Jest is a JavaScript testing framework designed to ensure correctness of any JavaScript codebase. It allows you to write tests with an approachable, familiar and feature-rich API that gives you results quickly. Jest is well-documented, requires little configuration and can be extended to match your requirements.
+
+Is dependency injection in React?
+Dependency injection is a design pattern that promotes loose coupling between components by providing dependencies from an external source
+In React, dependency injection can be achieved using Context API and custom hooks.
+
+Zindex:
+This concept works similarly in React Native, where the z-Index attribute enables the specification of element display order on the screen. By assigning a higher value to an element's z-index, Elements with a higher z-index value appear on top of elements with lower values
+
+What is testing in React JS?
+React Testing Library is a JavaScript testing utility that provides a set of utility functions that allow developers to interact with the components, such as clicking buttons, entering text, and checking for the presence of certain elements.
+
+JavaScript Form Submission
+We can do this by using the preventDefault method on the event object. Then, we can perform any necessary validation or processing before submitting the form data. In this example, we changed the button type to button and added an onclick attribute to call the submitForm function
+
+Hooks:
+
+Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes. (We don't recommend rewriting your existing components overnight but you can start using Hooks in the new ones if you'd like.)
+
+useState:
+The useState() is a Hook that allows you to have state variables in functional components .
+Syntax: The first element is the initial state and the second one is a function that is used for updating the state.
+
+const [state, setState] = useState(initialstate)
+
+useNavigate:
+ReactJS useNavigate() Hook
+
+To navigate back to previous pages we will use the React useNavigation Hook. We will pass a numerical value to navigation and switch back to the previous page inside the navigate, instance of the useNavigate hook, as a prop and call it when the defined button is clicked
+
+useEffect: 
+  The useEffect Hook allows you to perform side effects in your components.
+  Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+  useEffect accepts two arguments. The second argument is optional.
+  useEffect(<function>, <dependency>)
+
+
+
+AWS:
+Amazon s3:
+  amazon s3 is an amazon simple storage service. it is an object storage service.
+it is used to store and retreive any amount of data at anytime at anywhere.
+
+Ec2:
+
+Java & Springboot:
+
+@DataJpaTest:
+  By default, @DataJpaTest will configure an in-memory embedded database, scan for @Entity classes and configure Spring Data JPA repositories. It is also transactional and rollback at the end of each test. 
+
+@Transactional:
+  The @Transactional annotation is used to mark a method or a class as transactional, meaning that any database operations performed within the marked method or class will be executed within a transaction. If the transaction is successful, the changes will be committed to the database. If an error occurs and the transaction is rolled back, the changes will not be persisted in the database.
+

@@ -1,0 +1,174 @@
+java latest version : 18
+maven latest version : 3.6.3
+spring latest version : 5.3.18
+spring boot latest version : 2.6.6
+junit latest version : 5
+mockito latest version : 4
+
+installation guide
+What is maven
+   Build jar and war
+   Run the application locally- Tomcat or jetty
+   Deploy to a T environment
+   Add new dependency to a project
+   Run unit tests
+   maven have the features of architypes which can be used to generate web application(application use spring mvc).
+
+beginner maven project
+   what is the power of maven
+   project object model(POM)->phase of maven
+   build life cycle
+
+Inside mavenproject we have 3 files(Aapp.java,AppTEst.java,pom.xml)
+
+i need to create Spring.jar
+1.comiple App.java->App.class
+2.compile AppTest.java->AppTest.class(we need junit framework in our class path to compile is class)
+3.Run the unit test
+4.(once its successful i would combine all the class files into one architype and spring.jar)
+i want to do all these 4 steps using maven
+
+Conversion over Configuration.
+maven define some of defaults.
+1.src/main/java(sourse file should be in a form of)
+2.src/test/java(test files)
+we need to override these.
+we need to create folders(new(src(main(java),test(java)))
+we have pom.xml in our route of the folder(when u run maven it will look for pom.xml as default)
+
+java -version
+mvn --version
+
+mvn compile
+(compiling src and test)->project->pom,src(main,test),target(classes(App.class),maven-status)
+
+1.resources
+2.pluggin
+we can extend maven and create own plugins(maven-compiler-plugin)->compile the java(src->App.java) and put in target/classes folder
+
+BUILD SUCCESS
+
+mvn test-compile(run both src and test files)
+
+target->testclasses->AppTest.class
+
+resource
+plugin:compile
+plugin:testcompile
+
+Here we learned how to compile src file and test file.
+
+mvn clean  -> delete the target files
+mvn test  ->used to run junit test files(before that we have to compile src and test files)
+
+Build Life cycle(Build phases in maven)
+   maven does whenever u do mvn clean install or mvn clean deploy the sequence of steps run in the background
+   and build lyfe cycle just define what are those sequence of steps.
+   
+   before we build the jar or war , we have to compile src and test files and run the Junit tests
+   then we package and create the jars and then go to install or deploy it.
+
+   validate
+   compile
+   test
+   package
+   integration test
+   veify
+   install
+
+mvn install
+
+1.creating jar(package)
+2.install comment(coping the created jar to local maven repository)
+
+target->jar->App.class,classes,test.classes,maven-archiver,maven status,surefires-reports->AppTest.txt,TEST.APPText.xml
+
+we have to import maven in eclipse(ide).
+
+POM:
+   NAme,Version,Packaging,Dependencies,Plugins(maven deploy to tomcat).
+maven have local repository where it stored its all the dependency.
+
+intermediate maven project:
+   we are adding new dependency org.hebernate and build
+   transitive dependency.
+   hibernate defines no of transitive dependency
+   we can exclude hibernate's other dependency using <exclusion> 
+   
+   <version>[4.1,]</version>->any version that is >=4.1
+   [4.1)->upto 4.1
+   [4.1,4.4]->between
+
+   <scope> is specified where the jar going to use that means if we mention 
+   <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>[4.1,4.20]</version>
+      <scope>test</scope>
+   <dependency>
+
+   here we dont need the junit in src file we need in test file.
+   <scope>->compile(used only on compile time),import,provided(if somethin is provided we dont need to get it it already available in part of web server,
+            lets say a particular jar already available in my web sphere,i dont to make it part of the package, so i will call it provided),
+            runtime(when u not wnt ur jar to be available when u compiling the code. when u compile u need to depend on interface not implementation,
+            if u put scope runtime then when u compile the code if u use implementation build will break) .
+
+   <bulid>inside build we add plugin.we have source and target inside configuration .we can change the java versiponby changing the sourse and target.
+   <source>1.8</sourse>
+   <target>1.8</target>
+ Effective pom-> is a child pom.super pom is parent pom(pom.xml).
+   we can change the sourcedirectory in main pom.
+   inside effective pom we have lot of plugins
+   maven compile plugin,iit have compile <phase><goal> and instal phase goal.
+   maven surefire plugin(test), maven install plugin, mave deploy plugin.
+   pom(60 line), eff.pom(280)
+
+mvn help:effective-pom
+
+
+multi module maven project:(dependency management in parent pom)
+   all java projects have no of layers.
+   web(web mvc),business(transaction),data(hibernate) layer with different dependency.
+   each layer have their own dependency so each will handle independently.
+   inside data and business we have api(defines interfaces) and impl(contain implementations).
+   model->acts like domain model(binds the data and business layer)
+   multi-module-mode-> multi-module-business(api,impl)-> multi-module-data(api,impl)-> multi-module-medel
+   parent-><packaging>pom</packaging>set the property and depencies which needed by this particular modules(model,data,business)
+   each module have its own pom.xml
+   module name = to folder name
+   we can set propertiees version in parent pom or normal pom.
+
+mvn clean install
+
+
+maven web application:
+   mvn clean install //comment in particular folder
+   after that u will see
+   in pom.xml <properies>,<modules> <module>core,web-common,web-servlet-jsp<module> </modules>,packaging(pom)   //3 module
+   core(define backend functionality)->how to launch hibernate,what r the business services.
+   web-common->created with web servlet and jsp
+   web-servlet-jsp->default jee   (packaging war)
+mvn tomcat7:run
+   
+
+tip and tricks
+    mvn clean install  -->it would run,compile,build the jar.
+    mvn -X  -->lot of information
+    mvn -X clean install   --> ir would pring all the debug 
+    mvn effective:pom   -->print entire pom
+    mvn help:effective-pom  -->both parent and effective
+    mvn dependency:tree   -->dependency have its own dependency.
+    mvn dependency:sources   -->i want to see the source of a spring framework
+    mvn help:effective-settings  --> where is my maven local repository(all jars inside this)
+    mvn architype:generate  --> architype
+    ls
+    cd name
+
+    
+    
+
+
+jdk,ide,maven->need to install in our system.
+
+
+

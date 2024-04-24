@@ -1,0 +1,208 @@
+HTML:
+html is a hypertext markup language 
+used to create web pages.
+it defines the building blocks of the web pages.
+Html having some important elements such as (html -root tag, head-meta data, body-inside body tags will be displayed in the front end) tags etc..
+
+Structure:
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta>
+<title>Allison here</title>
+<style/>
+<body>
+<h1>Welcome home</h1>
+<p>Scott loves you!</p>
+</body>
+</html>
+
+Text:
+<em>HTML</em>  -> italic and it used to embhasise the content.
+<i> also italic
+<strong>
+<b> bold
+<br> break
+<sup> </sup>   -> power super script  like a2 square
+<sub> </sub>   ->below sub script like h2o
+<q>  -> double quotation
+<hr />  single line
+<del>
+<ins>
+<blockquote>
+<dfn>
+<cite>
+<abbr>
+<address>
+
+wrap with abreviation cntl+shift+p ->em
+
+
+
+Entities:
+All the entities starts with 
+&lt;  ->lt less than   <
+&gt; greater than >
+&copy;  copy rights
+&nbsp;  non breakable space
+<p>Lorem100</p> 100 words.
+
+HyperLinks:
+
+<a href="about.html">about</a>
+about.html same folder
+company/about.html separate folder
+../index.html is file from diferent folder 
+/index.html is better
+
+<a href="images/TeenWolf.jpg" download>Photo</a>
+<h2 id="sec-css">HTML<h2>
+<a href="#sec-css">CSS</a>
+<a href="https://google.com target="_blank">Google</a>   ->target new tab
+<a href="mailto:kanaga.mani411@gmail.com">Email Me</a>
+
+Link:
+link is an address, the url, the location of the target page.
+HyperLink:
+element can click on and navigate to target page.
+
+Images:
+<style>
+img{
+object-fit:cover;  useful for not destoying the shape of the img(containing box)
+}
+</style>
+
+Audio & Video:
+
+short cuts:
+! -> code snippet   emmet
+
+List:
+
+UnOrdered list:
+<ul>
+   <li>apple</li>
+   <li>banana</li>
+   <li>grapes</li>
+</ul>
+
+Ordered list
+<ol>      -> <ol type="I" or "i" or "a" or "A">   <ol start="5">
+   <li>apple</li>
+   <li>banana</li>
+   <li>grapes</li>
+</ol>
+
+definition list
+<dl>
+  <dt>Fruits</dt>   ->definition term
+  <dd>apple is good for health</dd>
+  <dt>non veg</dt>
+  <dd>oil food is not good</dd>
+</dl>
+
+Links:
+
+<a href="https://www.youtube.com/watch?v=My_S68DAAPg" target="_blank">youtube song</a>
+this link is absolute url.
+
+<a href="about.html" target="_blank">about</a>
+this link is relative url
+
+<a href="about.html" >about</a>
+<a href="/about.html" >about</a>  both are same  / file in same folder
+
+<a href="../about.html" >about</a>  file in parent folder 
+
+<a href="../../about.html" >about</a> file in grand folder
+
+<a href="mailto:kanaga.mani411@gmail.com">mail us</a>
+
+Id:
+
+use unique name for id
+use # to mention id name
+we are using id for identify particular block
+
+<a href="menu.html#dessert" >select Dessert</a>
+
+<a href="#dessert" >select Dessert</a>  used to show in same file.
+
+Images:
+
+<img="images/dosa.jpg" alt="spacial dosa"  title="signature dosa">
+
+here title is optional that is used to show while we browse the curser on the image.
+alt is imp we have to give definition.
+we can give width and height in px but it is more preferable in css.
+
+<img="images/dosa.jpg" alt="spacial dosa"  title="signature dosa" width="1000" height="600" align="left">
+
+
+
+Tables:
+
+<table border="2">
+        <thead>
+            <tr>
+                <td> </td>
+                <td>Items</td>
+                <td>Cost</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Starters</td>
+                <td>Samosa</td>
+                <td>Rs. 10</td>
+            </tr>
+            <tr>
+                <td>Veg roll</td>
+                <td>Rs. 30</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td colspan="2">Rs. 40</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+cellpadding
+bgcolour
+cellspacing
+
+
+Forms:
+
+we are using forms for getting inputs from users.
+
+<div> </div> it is used to divide the elements, we can add id and make it more sense.
+       it create next line for the next element.
+
+<label></label>
+<input> used to get input from user.
+
+
+enctype="multipart/form-data"
+
+checkbox
+radio-> value must be given
+dropdown-> select option
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

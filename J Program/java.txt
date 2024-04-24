@@ -1,0 +1,1937 @@
+Java Tutorial:
+
+IDE: eclipse
+   integrated development environment. we have 1 software where we can type compile run in same software that is ide.
+
+Basic program structure:
+
+public class ClassName
+{
+    public static void main(String args[])
+    {
+         System.out.println("Hello World");
+    }
+}
+
+JVM: Java Virtual Machine
+    compiler converts the source file into byte code that is run by jvm.
+Variables:
+variable is used to store the data.
+
+primitive datatypes:
+   int 4 bytes 32 bits,   //-2,147,483,648 to 2,147,483,648
+   float4,double 8,long 8, char 2.
+
+public class ClassName
+{
+    public static void main(String args[])
+    {
+         int a = 5;
+         System.out.println(a);
+    }
+}
+
+_ and $ are allowed as variable name.
+
+int num = 5;
+num = 8;
+System.out.println(num); #op 8
+
+double percent = 5.5;
+we can use float by float = 5.5f;
+
+short s = 5;   // 2bytes  -32768 to 32767
+byte b = 5;  // 1 byte   -128 to 127
+long l = 5000000000l;
+ char c = 'A';
+ c = 66; 
+System.out.println(c); #op B
+
+double d1 = 5;       //implicit conversion
+System.out.println(c); #op 5.0
+int k = (int)5.6;   //type casting  or explicit
+System.out.println(k); #op 5
+
+byte to short and char ---> int-->long-->float--->double
+
+Naming conversion in java:
+
+Variable Name:
+sname
+stockprice
+
+ClassName:
+String
+Integer
+Student
+
+Interface Name:
+Runable
+Serializable
+
+Interface: Adjective   // cap
+Class: Noun               ,,
+Method: Verb    print, write,actionPerformed//1st letter smal
+Variable: bankDetails  ,,
+Constant:  // PID, DENSITY,MAX_PRICE 
+
+MyFirstJavaClass    //Camel Casing Rule--> except package and constant
+
+variable: abc
+constant: ABC
+constructor: Abc()
+method: abc()
+interface: Stretchable
+
+comments:
+single: //
+multi: /*
+        *
+        *
+        */
+Arithmetic Operators in Java:
++,-,*,/,%
+
+public class OperatorDemo {
+
+   public static void main(String args[])
+   {
+       int m=6,n=2;
+       int r1 =m+n;  //8
+       int r2 =m-n;  //4
+       int r3 =m*n;  //12
+       double r4 = (double)m/n;  //3
+       int r5 =m%n;  //2  if n=4
+
+       System.out.println(r1);
+
+       System.out.println(r2);
+
+       System.out.println(r3);
+
+       System.out.println(r4);
+
+       System.out.println(r5);
+
+    }
+
+}
+
+bitwise  <<  >>
+public class OperatorDemo {
+ public static void main(String args[])
+   {
+       int m=4,n=5;
+       n = n + m;
+       n += m;    //n=n+m
+       n++;
+       m = ++n  //6
+       m = n++  //5
+      
+
+       System.out.println(m);
+
+       System.out.println(n);
+
+    }
+
+}
+
+If Else Selection Statement:
+*if
+*ternary
+*switch
+
+public class SelectionDemo
+{
+   public static void main(String[] args)
+   {
+        int n = 7;
+        if(true)
+             System.out.println("hello");    // will run      
+        if(false)
+             System.out.println("hello");  //wont run
+    }
+}
+
+public class SelectionDemoi
+{
+    public static void main(String[] args) {
+         int n = 7;
+         if(n%2==0)
+              System.out.println("even");
+         if(n%2!=0)
+              System.out.println("odd")
+    }
+}
+
+
+
+public class SelectionDemo1
+{
+    public static void main(String[] args) {
+         int n = 7;
+         if(n%2==0)
+              System.out.println("even");
+         else
+              System.out.println("odd")
+    }
+}
+
+public class SelectionDemo2
+{
+    public static void main(String[] args) {
+         int n = 7;
+         if(n==0)
+              System.out.println("nothing");
+         else if(n%2==0)
+              System.out.println("even");
+         else
+              System.out.println("odd")
+    }
+}
+
+//when have more than 1 statement for if else  u have to add {}
+
+Ternary operator:
+
+// ?:   -> condition?exp1:exp2
+
+public class TernaryDemo
+{
+    public static void main(String[] args)
+    {
+        int i = 8;
+        int j = 0;
+        
+        j = i>6 ? 1:2
+        System.out.println(j);                  // op=1  if i=5 op=2
+     }
+}
+
+Switch:
+
+public class SwitchDemo {
+  public static void main(String[] args) {
+       int n = 4;
+       switch(n)
+       {
+       case 1:
+           System.out.println("one");
+           break;
+
+       case 2:
+           System.out.println("two");
+           break;
+       case 3:
+           System.out.println("three");
+           break;
+       case 4:
+           System.out.println("four");
+           break;
+       case 5:
+           System.out.println("five");
+           break;
+       default:
+           System.out.println("No Match");
+       }
+   }
+}
+
+char n = 'A';
+case 'A':
+Switch doesnt support double
+String n = "abc";    // compiler 1.7 and later  str will work in switch 
+case "abc":
+
+
+
+While and Iteration:
+   //while, do while, for, for-each(array, collections)
+
+public class IterationDemo {
+     public static void main(String[] args) {
+          int n = 1;
+          while(n<=5) {
+            System.out.println("hello");
+            n++;
+          }
+     }
+}
+
+public class IterationDemo2 {
+     public static void main(String[] args) {
+          int n = 9;
+          do {
+            System.out.println("hello");
+            n++;
+          }while(n<=5);
+     }
+}
+
+public class IterationDemo2 {
+     public static void main(String[] args) {
+          for(int i=1;i<=5;i++) {
+            System.out.println("hello");
+          }
+     }
+}
+
+Nested loops:
+  
+/*
+* * * *
+* * * *
+* * * *
+* * * *
+*/
+
+public class IterationDemo3 {
+   public static void main(String[] args) {
+        for(int i=1;i<=4;i++) {
+           for(int j=1;j<=4;j++) {
+               System.out.println("* ");                 //System.out.println(j + " ");  op: 1 2 3 4
+           }
+           System.out.println();
+        }
+   }
+}
+
+/*
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+1 2 3 4 5 6
+*/
+
+public class IterationDemo3 {
+   public static void main(String[] args) {
+        for(int i=1;i<=6;i++) {
+           for(int j=1;j<=i;j++) {
+               System.out.println("* ");                 
+           }
+           System.out.println();
+        }
+   }
+}
+
+Break and Continue:
+
+public class JumpDemo {
+    public static void main(String[] args) {
+         for(int i=1;i<=10;i++) {
+             if(i>5)
+             {
+                continue;
+             }
+             System.out.println("value is" + i);  op value is 1 2 3 4 5 6 8 9 10
+         }
+    }
+}
+
+
+public class JumpDemo2 {
+    public static void main(String[] args) {
+         for(int i=1;i<=10;i++) {
+             if(i>5)
+             {
+                break;
+             }
+             System.out.println("value is" + i);  op value is 1 2 3 4 5
+         }
+    }   // break will break the loop
+}
+
+
+
+Object and Class:
+
+class Calc {
+   int num1;
+   int num2;
+   int result;
+   public void perform()
+   {
+       result = num1 + num2;
+   }
+}
+public class ObjectDemo {
+     public static void main(String[] args) {
+            Calc obj = new Calc();     // new Calc is an object here, onj is a reference.
+            obj.num1 = 3;
+            obj.num2 = 6;
+            obj.perform();
+            System.out.println(obj.result);
+     }
+}
+
+
+Constructor:
+
+Constructor is a member method, which has name name as class name , no have return type.
+It will be used to allocate memory.
+It is used to inialize the obj.
+It is default even u dnt create it will.
+evey time u create an obj , we dont need to call the construcctor. It will bw called automattically.
+
+class A
+{
+   int i;   //0
+   float f; //0.0
+}
+public A()
+{
+  i=5;
+  f=5.5f;
+  System.out.println("hi");
+}
+
+public A(int k)    // constructor overloading
+{
+  i=k;
+  System.out.println("hello");
+}
+public static void main(String[] args)
+{
+   A obj = new A();   // it call ist const hi  //if its A obj = new A(6); then hello
+}
+
+Constructor overloading:
+  we can have 2 constructor in same class, but they have diferent parameters
+  Having multiple constroctor with different parameters in a same class is called constructor overloading
+ 
+
+third constructor:
+A(int k, float j)   // A obj = new A(6,5.5f);
+
+
+Example:
+
+// by default value for the variable is 0.
+
+class Calc
+{
+   int num1;
+   int num2;
+   int result;
+   
+   public Calc()
+   {
+      num1=3;
+      num2=6;
+      System.out.println("in constructor");
+    }
+}
+
+public class ConstDemo
+{
+  public stativ void main(String[] args)
+  {
+      Calc obj = new Calc();
+      System.out.println(obj.num1);
+
+   }
+}
+
+//op: in constructor, 3
+
+#2
+class Calc
+{
+   int num1;
+   int num2;
+   int result;
+   
+   public Calc()
+   {
+      num1=3;
+      num2=6;
+     
+    }
+
+    public Calc(int n)
+    {
+        num1=n;
+        num2=n;
+     }
+}
+
+public class ConstDemo
+{
+  public stativ void main(String[] args)
+  {
+      Calc obj = new Calc(7);
+      System.out.println(obj.num1);
+
+   }
+}
+
+//op: 7
+
+
+#3
+class Calc
+{
+   int num1;
+   int num2;
+   int result;
+   
+   public Calc()
+   {
+      num1=3;
+      num2=6;
+     
+    }
+
+    public Calc(int n)
+    {
+        num1=n;
+        num2=n;
+     }
+    
+      public Calc(double d)
+    {
+        num1 = (int)d;
+     }
+}
+
+public class ConstDemo
+{
+  public stativ void main(String[] args)
+  {
+      Calc obj = new Calc(7.5);
+      System.out.println(obj.num1);
+
+   }
+}
+
+//op: 7
+
+
+
+#4
+class Calc
+{
+   int num1;
+   int num2;
+   int result;
+   
+   public Calc()
+   {
+      num1=3;
+      num2=6;
+     
+    }
+
+    public Calc(int n)
+    {
+        num1=n;
+        num2=n;
+     }
+    
+      public Calc(double d,int n)
+    {
+        num1 = (int)d;
+        num2 = n;
+     }
+}
+
+public class ConstDemo
+{
+  public stativ void main(String[] args)
+  {
+      Calc obj = new Calc(7.5,8);
+      System.out.println(obj.num1);
+
+   }
+}
+
+//op:7
+
+
+This Keyword:
+ 
+ it is used to mention the variable is instance variable.
+
+#1
+class Calc
+{
+   int num1;
+   int num2;
+   int result;
+   
+   public Calc(int number1,int number2)
+   {
+      num1=number1;   // num1 is instance var, number1 is local variable.
+      num2=number2;
+     
+    }
+
+}
+
+public class ConstDemo
+{
+  public stativ void main(String[] args)
+  {
+      Calc obj = new Calc(4,5);
+      System.out.println(obj.num1);
+      System.out.println(obj.num2)
+   }
+}
+
+
+#2
+class Calc
+{
+   int num1;
+   int num2;
+   int result;
+   
+   public Calc(int num1,int num2)
+   {
+      this.num1=num1;   // this mentioning the left side num is instance var.   // this is a current object.
+      this.num2=num2;   // if we dont mention this it wont return anything as output.
+     
+    }
+
+}
+
+public class ConstDemo
+{
+  public stativ void main(String[] args)
+  {
+      Calc obj = new Calc(4,5);
+      System.out.println(obj.num1);
+      System.out.println(obj.num2)
+   }
+}
+ 
+Method and Constructor Overloading:
+
+
+//method overloading:
+class Casio
+{
+   public void add(int a,int b)
+   {
+         System.out.printnln(a+b);
+   }
+
+   public void add(int a,int b,int c)
+   {
+         System.out.printnln(a+b+c);
+   }
+
+   public void add(double a,double b)
+   {
+         System.out.printnln(a+b);
+   }
+}
+
+public class MethodDemo
+{
+   public static void main(String[] args) 
+   {
+      Casio obj = new Casio();
+      obj.add(4,5);
+
+      obj.add(4,5,6);
+
+      obj.add(4.5,5.5);
+    }
+}
+
+#constructor overloading:
+
+class Casio
+{
+   int num1;
+   int num2;
+   String operation;
+
+   public Casio()
+   {
+      num1 = 0;
+      num2 = 0;
+      operation = "Nothing";
+   }
+
+   public Casio(int a)
+   {
+     num1 = i;
+     num2 = 0;
+     operation = "Nothing";
+   }
+
+   public Casio(int a,int b)
+   {
+     num1 = i;
+     num2 = j;
+     operation = "Nothing";
+   }
+   public Casio(int a,int b,String op)
+   {
+     num1 = i;
+     num2 = j;
+     operation = op;
+   }
+  
+  
+}
+
+public class MethodDemo
+{
+   public static void main(String[] args) 
+   {
+      Casio obj = new Casio();
+     //Casio.obj = new Casio(4);
+     //Casio.obj = new Casio(4,5);
+     //Casio.obj = new Casio(4,5,"Add");
+    }
+}
+
+Static Keyword:
+ 
+class Emp
+{
+    int eid;
+    int sal;
+    String ceo;
+   
+    public void show()
+    {
+        System.out.println(eid + ":" + sal + ":" + ceo);
+    }
+
+}
+
+Public class StaticDemo
+{
+   public static void main(String[] args)
+   {
+       Emp naveen = new Emp();
+       naveen.eid = 1;
+       naveen.sal = 5000;
+       naveen.ceo = "Kax";
+
+       Emp sudhi = new  Emp();
+       sudhi.eid = 2;
+       sudhi.sal = 2000;
+       sudhi.ceo = "Kax";
+
+       sudhi.ceo = "Ashwin";
+
+
+       naveen.show();
+
+       sudhi.show();
+
+   }
+}
+
+//op: 1:5000:kax
+      2:2000:Ashwin
+if we use Static in string ceo 
+
+#2
+
+class Emp
+{
+    int eid;
+    int sal;
+    static String ceo;
+   
+    public void show()
+    {
+        System.out.println(eid + ":" + sal + ":" + ceo);
+    }
+
+}
+
+Public class StaticDemo
+{
+   public static void main(String[] args)
+   {
+       Emp naveen = new Emp();
+       naveen.eid = 1;
+       naveen.sal = 5000;
+       naveen.ceo = "Kax";
+
+       Emp sudhi = new  Emp();
+       sudhi.eid = 2;
+       sudhi.sal = 2000;
+       sudhi.ceo = "Kax";
+
+       sudhi.ceo = "Ashwin";
+
+
+       naveen.show();
+
+       sudhi.show();
+
+   }
+//op: 1:5000:Ashwin
+      2:2000:Ashwin
+if we make our variable as Static in string ceo , it will bw same for all the objects.
+// here Emp is a class, naveeen and sudhi are the objects.
+
+#3
+//when you mention a variable as static , u can use class name or obj name.
+
+
+class Emp
+{
+    int eid;
+    int sal;
+    static String ceo;
+   
+    public void show()
+    {
+        System.out.println(eid + ":" + sal + ":" + ceo);
+    }
+
+}
+
+Public class StaticDemo
+{
+   public static void main(String[] args)
+   {
+       Emp naveen = new Emp();
+       naveen.eid = 1;
+       naveen.sal = 5000;
+       Emp.ceo = "Kax";
+
+       Emp sudhi = new  Emp();
+       sudhi.eid = 2;
+       sudhi.sal = 2000;
+       Emp.ceo = "Kax";
+
+       Emp.ceo = "Ashwin";    // we dont need object for access static variable
+
+
+       naveen.show();
+
+       sudhi.show();
+
+   }
+//op: 1:5000:Ashwin
+      2:2000:Ashwin
+
+
+#4
+
+
+class Emp
+{
+    int eid;
+    int sal;
+    static String ceo;
+   
+    static                         //when you load the class
+    {
+        ceo = "larry";             //static will execute 1st
+        System.out.println("in static");
+    }
+
+    public Emp()                  //when you create an object
+    {
+         eid = 1;
+         sal = 2000;
+         System.out.println("in constructor ");
+     }
+    public void show()
+    {
+        System.out.println(eid + ":" + sal + ":" + ceo);
+    }
+
+}
+
+Public class StaticDemo
+{
+   public static void main(String[] args)
+   {
+       Emp naveen = new Emp();
+      
+       Emp sudhi = new  Emp();
+       
+
+
+       naveen.show();
+
+       sudhi.show();
+
+   }
+}
+//op: in static
+      in constructor
+      in constructor
+      1:2000:larry
+      1:2000:larry
+
+#5
+Public class StaticDemo
+{
+   static int i = 0;
+   public static void main(String[] args)
+   {
+       i = 9;
+       Emp naveen = new Emp();
+      
+       Emp sudhi = new  Emp();
+       
+
+
+       naveen.show();
+
+       sudhi.show();
+
+   }
+}
+    
+
+Inner Class:
+
+class Outer                                //file name:Outer.class
+{
+    int a;
+    public void show()
+    {
+
+    }
+
+    class Inner                           //file name:Outer$Inner.class
+    {
+        public void display()
+        {
+            System.out.println("in display");
+
+    }
+}
+
+public class InnerDemo                    //file name:InnerDemo.class
+{
+    public static void main(String[] args)
+    {
+
+         Outer obj = new Outer();
+         obj.show();
+
+         Outer.Inner obj1 = obj.new Inner();
+         obj1.display();
+
+}
+
+
+#2
+
+/*
+inner class
+member class
+static class
+anonymous class
+*/
+
+class Outer                                //file name:Outer.class
+{
+    static int a;
+    public static void show()
+    {
+
+    }
+
+    static class Inner                           //file name:Outer$Inner.class
+    {
+        public void display()
+        {
+            System.out.println("in display");
+
+    }
+}
+
+public class InnerDemo                    //file name:InnerDemo.class
+{
+    public static void main(String[] args)
+    {
+
+         Outer obj = new Outer();
+         obj.show();
+
+         Outer.Inner obj1 = new Outer.Inner();
+         obj1.display();
+
+}
+
+
+
+Arrays:
+
+Collection of elements
+every element mustbhave index that will be started as 0.
+if array size is 20 but u try to put 21 it shows ArrayIndexOutOfBoundException.
+
+a. 1D array
+b. 2D array(array of array)
+c. Jagged array(differnt size of arrays)
+
+public class ArrayDemo
+{
+    public static void main(String[] args)
+    {
+        int nums[] = new int[4];
+        nums[0] = 4;
+        nums[1] = 14;
+        nums[2] = 24;
+        nums[3] = 34;
+
+        System.out.println(nums[2]);
+     }
+}
+op:24
+
+#2
+public class ArrayDemo
+{
+    public static void main(String[] args)
+    {
+        int nums[] = new int[4];
+        nums[0] = 4;
+        nums[1] = 14;
+        nums[2] = 24;
+        nums[3] = 34;
+
+        nums[2] = 44;
+        System.out.println(nums[2]);
+     }
+}
+op:44
+
+
+#3
+public class ArrayDemo
+{
+    public static void main(String[] args)
+    {
+        int nums[] = new int[4];      //u can use int nums[] = {4,14,24,34};
+        nums[0] = 4;
+        nums[1] = 14;
+        nums[2] = 24;
+        nums[3] = 34;
+
+        for(int i=0;i<4;i++)
+        {
+            System.out.println(nums[i]);
+        }
+
+     }
+}
+op:4,14,24,34
+
+#4
+class Student
+{
+    int rollno;
+    String name;
+}
+public class ArrayDemo
+{
+    public static void main(String[] args)
+    {
+        Student s1 = new Student();
+        Student s2 = new Student();
+        Student s3 = new Student();
+        Student s4 = new Student();
+
+    (or)
+        Student s[] = new Student[4];
+   (Or)
+
+        Student s[] = {s1,s2,s3,s4};
+
+        for(int i=0;i<4;i++)
+        {
+            System.out.println(nums[i]);
+        }
+
+     }
+}
+
+
+
+2D array:
+
+public class ArrayDemo
+{
+    public static void main(String[] args)
+    {
+         int a[] = {1,2,3,4};
+         int b[] = {11,12,13,14};
+         int c[] = {21,22,23,24};
+
+         int d[][] = {
+                       {1,2,3,4},
+                       {11,12,13,14},
+                       {21,22,23,24}
+                     };
+         System.out.println(d[0][2]);
+
+         for(int i=0;i<3;i++)                                  
+         {
+            for(int j=0;j<4;j++)                             
+            {
+                 System.out.print(" " + d[i][j]);            //System.out.println(d[i][j]); it produce each element in new line.
+            }
+            System.out.println();
+
+         }
+     }
+}
+
+op:
+
+ 1 2 3 4
+ 11 12 13 14
+ 21 22 23 24
+ 31 32 33 34
+
+Jagged array:
+
+public class ArrayDemo
+{
+    public static void main(String[] args)
+    {
+         int a[] = {1,2,3,4};
+         int b[] = {11,12,13,14};
+         int c[] = {21,22,23,24};
+
+         int d[][] = {
+                       {1,2,3,4},
+                       {11,12,13},
+                       {21,22,23,24,25}
+                     };
+         System.out.println(d[0][2]);
+
+         for(int i=0;i<d.length;i++)                                 // i<d.length(rows);  -->i<3 
+         {
+            for(int j=0;j<d[i].length;j++)                             // d[i].length;  --> d[0] length is 4  ---> d[0] means 1st row.
+            {
+                 System.out.print(" " + d[i][j]);            //System.out.println(d[i][j]); it produce each element in new line.
+            }
+            System.out.println();
+
+         }
+     }
+}
+
+op:
+
+ 1 2 3 4
+ 11 12 13
+ 21 21 23 24 25
+
+
+Enhanced For Loop:
+
+public class ArrayDemo
+{
+    public static void main(String[] args)
+    {
+        int a[] = {1,2,3,4};
+      
+        for(int k:a)
+        {
+             System.out.println(k);
+        }
+     }
+}
+
+#2
+
+public class ArrayDemo
+{
+    public static void main(String[] args)
+    {
+        int d[][] = {{1,2,3,4},
+                      {5,6,7,8},
+                      {9,1,2,3}};
+      
+        for(int k[] : d)
+        {
+           for(int l : k)
+           {
+
+             System.out.print(" " + l);
+           }
+           System.println();
+        }
+     }
+}
+
+
+Varargs:
+  --> variable argument or var length arg
+
+class Calc
+{
+    public int add(int i,int j)
+    {
+        return i+j;
+    }
+}
+ 
+public class VarDemo
+{
+     public static void main(String[] args)
+     {
+         Calc obj = new Calc();
+         
+         System.out.println(obj.add(4,5);
+      }
+} 
+
+#2
+class Calc
+{
+    public int add(int ... n)
+    {
+        int sum = 0;
+        for(int i : n)
+        {
+              sum = sum + i;
+        }
+
+        return sum;
+    }
+}
+ 
+public class VarDemo
+{
+     public static void main(String[] args)
+     {
+         Calc obj = new Calc();
+         
+         System.out.println(obj.add(4,5,6,7,8,9);
+      }
+} 
+
+
+Oops Concepts:
+
+Inheritance:
+
+//Single level inheritance:
+ 
+class Calculator                                    //super,parent,base
+{
+       public int add(int i,int j)
+       {
+            return i+j;
+       }
+}
+
+class CalcAdv extends Calculator                    //sub,child,derived
+{
+       public int sub(int i,int j)
+       {
+            return i-j;
+       }
+}
+
+public class InheritanceDemo {
+  pulic static void main(String[] args)
+  {
+     CalcAdv c = new CalcAdv();
+
+     int result1 = c.add(6,3);
+     int result2 = c.sub(6,3);
+
+     System.out.println(result1);
+     System.out.println(result2);
+  }
+}
+
+
+
+//Multi level inheritance:
+ 
+class Calculator                                    //super,parent,base
+{
+       public int add(int i,int j)
+       {
+            return i+j;
+       }
+}
+
+class CalcAdv extends Calculator                    //sub,child,derived
+{
+       public int sub(int i,int j)
+       {
+            return i-j;
+       }
+}
+
+class CalcVeryAdv extends CalcAdv                    //sub  // IS - A
+{
+       public int mul(int i,int j)
+       {
+            return i*j;
+       }
+}
+
+public class InheritanceDemo {
+  pulic static void main(String[] args)
+  {
+     CalcVeryAdv c = new CalcVeryAdv();            // HAS - A
+
+     int result1 = c.add(6,3);
+     int result2 = c.sub(6,3);
+     int result3 = c.mul(2,3);
+
+     System.out.println(result1);
+     System.out.println(result2);
+     System.out.println(result3);
+  }
+}
+
+Hierarchical Inheritance:
+
+class Parent{
+     //parent class
+}
+class child1 extends Parent{
+    //child 1 extends parent class
+}
+class child2 extends Parent{
+   //child 2 extends parent class
+}
+class child3 extends Parent{
+  //child 3 extends parent class
+}
+
+// Inheritance  has 2 relationships.
+
+1. IS - A  --> a class extends from another class.
+2. HAS - A --> inside a class we are creating a object for another class.
+
+Super method:
+
+#1
+class A
+{
+   public A()
+   {
+      System.out.println("in A");
+   }
+
+}
+
+class B extends A
+{
+   public B()
+   {
+      System.out.println("in B");
+   }
+
+}
+
+public class SuperDemo
+{
+    public static void main(String[] args)
+    {
+         B obj = new B();
+    
+    }
+}
+//op: in A
+      in B
+
+#2
+class A
+{
+   public A()
+   {
+      System.out.println("in A");
+   }
+
+   public A(int i)
+   {
+      System.out.println("in int A");
+   }
+}
+
+class B extends A
+{
+   public B()
+   {
+      System.out.println("in B");
+   }
+
+   public B(int i)
+   {
+      System.out.println("in int B");
+   }
+}
+
+public class SuperDemo
+{
+    public static void main(String[] args)
+    {
+         B obj = new B(5);
+    
+    }
+}
+
+//op: in A
+      in int B
+
+#3
+class A
+{
+   public A()
+   {
+      System.out.println("in A");
+   }
+
+   public A(int i)
+   {
+      System.out.println("in int A");      //super calling
+   }
+}
+
+class B extends A
+{
+   public B()
+   {
+      super();
+      System.out.println("in B");
+   }
+
+   public B(int i)                       // const calling
+   {
+      super(i);
+      System.out.println("in int B");
+   }
+}
+
+public class SuperDemo
+{
+    public static void main(String[] args)
+    {
+         B obj = new B(5);
+    
+    }
+}
+
+//op: in  int A
+      in int B
+
+#4
+class A
+{
+   public A()
+   {
+      System.out.println("in A");
+   }
+
+   public A(int i)                       // super calling
+   {
+      System.out.println("in int A");
+   }
+}
+
+class B extends A
+{
+   public B()                           // const calling
+   {
+      super(i);
+      System.out.println("in B");
+   }
+
+   public B(int i)
+   {
+      super(i);
+      System.out.println("in int B");
+   }
+}
+
+public class SuperDemo
+{
+    public static void main(String[] args)
+    {
+         B obj = new B();
+    
+    }
+}
+
+//op: in int A
+      in B
+
+
+Multiple Inheritance:
+    java doesnt support multiple inheritance directly.
+Using classes u cant achieve MI.
+
+Exmple:
+
+class A
+{ 
+    Show();
+}
+
+class B
+{
+   show();
+}
+
+class C extends A,B
+{
+
+}
+
+main()
+{  
+   C obj = new C();
+   obj.show();                          // which show() method will be called? its a ? mark. its called abiguity problem.
+}
+
+
+Method Overriding:
+
+   
+class A
+{
+    public void show()
+    {
+          System.out.println("in A");
+    }
+
+}
+
+class B extends A
+{
+   
+}
+
+public class OverrideDemo
+{
+
+   public static void main(String[] args)
+   {
+        B obj = new B();
+        obj.show();
+   }
+}
+   
+op:
+in A
+
+#2
+
+class A
+{
+    public void show()
+    {
+          System.out.println("in A");
+    }
+
+}
+
+class B extends A
+{
+    @override                                    //using @override gives you an advantage instead of getting logical error, you will get compile time error.
+    public void show()
+    {
+          System.out.println("in B");             // also use super.show() up the syso for print in A
+    }
+
+}
+
+public class OverrideDemo
+{
+
+   public static void main(String[] args)
+   {
+        B obj = new B();
+        obj.show();
+   }
+}
+
+op:
+in B
+
+Dynamic Method Dispatch:
+
+class A
+{
+    public void show()
+    {
+          System.out.println("in A");
+    }
+
+}
+
+class B extends A                   //method overriding
+{
+    public void show()
+    {
+          System.out.println("in B");
+    }
+
+}
+
+class C extends A
+{
+    public void show()
+    {
+          System.out.println("in C");
+    }
+
+}
+
+public class OverrideDemo
+{
+// compile tym, run tym
+   public static void main(String[] args)
+   {
+        A obj = new B();           runtime polymorphism                //left reference right object
+        obj.show();
+
+        obj1 = new C();
+        obj1.show();               DMD  //to achieve DMD we have to follow runtym polymorphism
+   }
+}
+   
+op:
+in B
+in C
+
+Encapsulation:
+
+the only way to access the values through methods.
+variables should be private and methods whose accessing the variables should be public
+
+--> binding the data with methods known as encapsulation.
+
+class Student
+{
+    private int rollno;
+    private String name;
+
+    public void setRollno(int r)
+    {
+       rollno = r;
+    }
+   
+    public int getRollno()
+    {
+       rerturn rollno;
+    }
+}
+public class EncapsulationDemo
+{
+    public static void main(String[] args)
+    {
+          Student s1 = new Student();
+          s1.name = "naveen";
+          
+          s1.setRollno(2);
+          System.out.println(s1.getRollno());
+     }
+}
+
+#2
+
+class Student
+{
+    private int rollno;
+    private String name;
+
+    public void setRollno(int rollno)
+    {
+       this.rollno = rollno;
+    }
+   
+    public int getRollno()
+    {
+       rerturn rollno;
+    }
+
+
+    public void setName(int name)
+    {
+       this.name = name;
+    }
+   
+    public String getName()
+    {
+       rerturn name;
+    }
+}
+public class EncapsulationDemo
+{
+    public static void main(String[] args)
+    {
+          Student s1 = new Student();
+
+          s1.setName("naveen");
+          s1.setRollno(2);
+
+          System.out.println(s1.getRollno());
+
+          System.out.println(s1.getName());
+     }
+}
+// to secure the data we need encapsulation. so we mention variables as private.
+
+Wrapper Class / AutoBoxing:
+
+// int,float,double ext
+//Integer
+
+public class WrapperDemo
+{
+   public static void main(String[] args)
+   {
+       int i = 5;      //here i is a primitive datatype, ii is a reference var
+       Integer ii = new Integer(i);   //Boxing - Wrapping ,putting primitive value inside an object is called as boxing(oops) or wrapping(java).
+
+       int j = ii.intValue();         //Unboxing - taking the value from the object is unboxing.
+
+       Integer value = i;             // Autoboxing  - automatically do that in backend.
+       int k = value;                 //autounboxing
+   }
+}
+
+when u work with hibernte collection API, they work with wrapper class.
+
+public class WrapperDemo
+{
+      public static void main(String[] args)
+      {
+          String str = "123";
+
+          int n = Integer.parseInt(str);
+
+          System.out.println(n);
+      }
+}
+op: 123
+
+Abstract Keyword:
+
+->when you make a class abstract you can't instantiate the class .
+->whenever you have abstract method in your class, your class need to be abstract class
+->when your class extends abstract class , your class need to define the abstract method(if you dont do  it then ur class also abstract class)
+
+abstract class Human                 //abstract class
+{
+    public abstract void eat();
+    public void walk()
+    {
+
+    }
+
+}
+
+class Man extends Human            //concrete class
+{
+    public void eat()
+    {
+   
+    }
+}
+
+public class AbstractDemo
+{
+    public static void main(String[] args)
+    {
+       Human obj = new Man();
+       
+    }
+}
+
+Why do we need abstract class:
+
+we dont want anyone to create object of abstract class
+instead of wasting 2 methods, we use one method which accepts all the subclass objects
+
+class Printer
+{
+    public void show(Integer i)
+    {
+          System.out.println(i);
+    }
+
+    public void show(Double i)
+    {
+          System.out.println(i);
+    }
+}
+
+public class AbstractDemo
+{
+    public static void main(String[] args)
+    {
+          Printer obj = new Printer();
+
+          obj.show(5);
+          obj.show(5.5);
+    }
+}
+
+#2
+
+class Printer
+{
+    public void show(Number i)
+    {
+          System.out.println(i);
+    }
+
+}
+
+public class AbstractDemo
+{
+    //Float f;
+    public static void main(String[] args)
+    {
+          Printer obj = new Printer();
+
+          obj.show(5);
+          obj.show(5.5);
+         // obj.show(5.5f);
+    }
+}
+
+
+Final Keyword:
+
+we can use final keyword with variables,methods,class.
+
+class A
+{
+    int i = 0;
+    public A()
+    {
+       i = 10;
+    }
+}
+
+public class FinalDemo
+{
+    public static void main(String[] args)
+    {
+         A obj = new A();
+         System.out.println(obj.i);
+    }
+}
+
+#2
+
+class A
+{
+    final int i = 0;   //if the variable mentioned as final then that is constant
+    public A()
+    {
+       i = 10;
+    }
+}
+
+public class FinalDemo
+{
+    public static void main(String[] args)
+    {
+         A obj = new A();
+         System.out.println(obj.i);
+    }
+}
+op:0
+
+#3
+
+class A
+{
+    final int DAY;   //if the variable mentioned as final then that is constant
+    public A()
+    {
+       DAY = 10;
+    }
+}
+
+public class FinalDemo
+{
+    public static void main(String[] args)
+    {
+         A obj = new A();
+         System.out.println(obj.DAY);
+    }
+}
+
+//final method:
+
+final class A              //any other class cant extend this final class
+{
+
+     public void show()
+     {
+           System.out.println("in show");
+     }
+}
+
+class B extends A    // error
+{
+}
+
+public class  FinalDemo
+{   
+   public static void main(String[] args)
+   {
+            B obj = new B();
+            obj.show();
+   }
+}
+
+
+#3
+
+class A              //any other class cant extend this final class
+{
+
+     public final void show()                   //if i make my method as final no one else can ovverride
+     {
+           System.out.println("in show");
+     }
+}
+
+class B extends A  
+{
+     public void show()   //error
+     {
+           System.out.println("in B show");
+     }
+}
+
+public class  FinalDemo
+{   
+   public static void main(String[] args)
+   {
+            B obj = new B();
+            obj.show();
+   }
+}
+
+Interface:
+
+class Pen
+{
+}
+
+class Pencil
+{
+}
+
+class Kit
+{
+
+}

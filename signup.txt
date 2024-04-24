@@ -1,0 +1,163 @@
+App.js
+
+import React from 'react';
+import {useFormik} from 'formik';
+import './App.css';
+const validate = values => {
+  const errors = {};
+  if(!values.firstname){
+    errors.firstname = "*Required";
+  } else if(values.firstname.length > 8) {
+    errors.firstname = "*Must be 8 characters or less";
+  }
+  if(!values.lastname){
+    errors.lastname = "*Required";
+  } else if(values.lastname.length > 8) {
+    errors.lastname = "*Must be 8 characters or less";
+  }  
+  if(!values.email) {
+    errors.email = "*Required";
+  } else if(1/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(values.email)) {
+    errors.email = "*Invalid Email Address";
+  }
+  if(!values.password) {
+    errors.password = "*Required";
+  } else if(values.password.length > 8) {
+    errors.password = "*Maximum 8 characters";
+  } else if(values.password.length < 4) {
+    errors.password = "*Minimum 4 characters";
+  }
+  if(!values.confirmpassword) {
+    errors.confirmpassword = "*Required";
+  } else if(values.password !== values.confirmpassword) {
+    errors.confirmpassword = "*Password must match";
+  }
+  return errors;
+}
+const App = () =>{
+  const formik = useFormik({
+    initialValues : {
+      firstname : '',
+      lastname : '',
+      email : '',
+      password : '',
+      confirmpassword : '',
+    }
+  });
+  console.log(formik.values);
+  return(
+    <div className = "main">
+      <div className = "SignUp-form">
+        <h2>Sign Up Here</h2>
+        <form>
+          <input type="text"
+          placeholder="FirstName" name="firstname" 
+          autoComplete="off" onChange={formik.handleChange} 
+          value = {formik.values.firstname}/>
+          {
+            formik.errors.firstname ? <span>{formik.errors.firstname}</span> : null
+          }
+          <input type="text"
+          placeholder="LastName" name="lastname" 
+          autoComplete="off" onChange={formik.handleChange} value = {formik.values.lastname}/>
+          {
+            formik.errors.lastname ? <span>{formik.errors.lastname}</span> : null
+          }
+          <input type="text"
+          placeholder="Email" name="email" autoComplete="off" 
+          onChange={formik.handleChange} value = {formik.values.email}/>
+          {
+            formik.errors.email ? <span>{formik.errors.email}</span> : null
+          }
+          <input type="password"
+          placeholder="Password" name="password" autoComplete="off" 
+          onChange={formik.handleChange} value = {formik.values.password}/>
+          {
+            formik.errors.password ? <span>{formik.errors.password}</span> : null
+          }
+          <input type="password"
+          placeholder="Confirm" name="confirmpassword" autoComplete="off" 
+          onChange={formik.handleChange} value = {formik.values.confirmpassword}/>
+          {
+            formik.errors.confirmpassword ? <span>{formik.errors.confirmpassword}</span> : null
+          }
+          <input type="submit"
+          value="Submit"/>
+        </form>
+      </div>
+    </div>
+  );
+}
+export default App;
+
+index.js
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+App.css
+
+body {
+  background: indigo;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h2{
+  text-align: center;
+}
+.SighUp-form {
+  max-width: 450px;
+  border-radius: 20px;
+  margin: auto;
+  background-color: rgba(0,0,0,0.8);
+  box-sizing: border-box;
+  padding: 40px;
+  color: #fff;
+  margin-top: 100px;
+}
+input[type=text],input[type=password]{
+  width: 100px;
+  box-sizing: border-box;
+  padding: 12px 10px;
+  background-color: rgba(0,0,0,0.10);
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  color:rgb(248,243,243);
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: bold;
+}
+input[type=submit]{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0;
+  margin-top:30px;
+  outline: none;
+  border: none;
+  background-color: blue;
+  opacity: 0.3;
+  border-radius: 20px;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: 1s;
+}
+input[type=submit]:hover{
+  opacity: 1;
+}

@@ -1,0 +1,317 @@
+mysql driver
+spring security for authentication
+spring web
+springboot dev tools
+thymleaf
+spring data jpa
+
+step1:
+application.properties
+spring.data.mongodb.database=springsecuritymongodb
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+
+step2: Java User and Role Domains or Models or Entities:
+package:com.demo.project.domain
+class:User
+
+@Document(collection = "user")
+public class User {
+   @Id
+   private String id;
+   @Indexed(unique = true, direction = IndexDirection.DECENDING, dropDups = true)
+ 
+   private String email;
+   private String password;
+   private String firstname;
+   private String lastname;
+   private boolean enabled;
+
+   @DERef
+   private Set<Role> roles;
+
+geters and setters
+}
+
+2.2class:Role
+
+@Document(collection ="role")
+public class Role {
+   @Id
+   private String id;
+   @Indexed(unique = true, direction = IndexDirection.DECENDING, dropDups = true)
+   private String role;
+
+Getters and Setters
+}
+
+step3: create java user and role repository:
+package:com.demo.project.repositories
+java interface-class:UserRepository
+
+public interface UserRepository extends Mongorepository<User, String> {
+  User findByEmail(String email); ->domain.User
+}
+
+java interface-class:RoleRepository
+public interface RoleRepository extends Mongorepository<User, String> {
+  Role findByRole(String role); ->domain.User   //findByEmail
+  public void save(Role newAdminRole);   //edited
+}
+
+step4:create a custom java user details service:
+package:com.demo.project.services
+class:CustomUserDetailsService
+
+@Service
+public class CustomerUserDetailsService implements UserDetailsService {
+  @Autowired
+  private UserRepository userRepository;    
+
+  @Autowired
+  private RoleRepository roleRepository;    
+
+  @Autowired
+  private BCryptPasswordEncoder bCryptPasswordEncoder;    
+
+  public User findUserByEmail(String email) {
+      return userRepository.findByEmail(email);
+  }
+  public void savedUser(User user) {
+      user.setPassword(bCryptPasswordEncoder.encode(user.getPassword));
+      Role userRole = roleRepository.findByRole("ADMIN");
+      user.setRole(new Hash<>(Arrays.asList(userRole)));
+      userRepository.save(user);
+  }
+  
+  @Override
+  public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+      User user = userRepository.findByEmail(email);
+
+      if(user != null) {
+         List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
+         return buildUserForAuthentication(user, authorities);
+         } else {
+             throw new UsernameNotFoundException("username not found");
+         }
+  }
+ 
+  private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
+      Set<GrantedAuthority> roles = new HashSet<>();
+      userRoles.forEach(role) -> {
+          roles.add(new SimpleGrantedAuthority(role.getRole()));
+      });
+     
+      List<GrantedAuthority> grantedAuthorities = new ArrayList<>(roles);
+ 
+      return grantedAuthorities;
+   }
+   private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
+       return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(), authorities);
+   }
+}
+
+step5:create controller for all spring MVC views:
+package:com.demo.project.controllers
+class:AuthController
+
+@Controller
+public class AuthController {
+   
+    @Autowireed
+    private CustomUserDetailsService userService;
+
+    public ModelAndView login() {
+        ModelAndView moddelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
+ 
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public ModelAndView signup() {
+        ModelAndView modelAndView = new ModelAndView();
+        User user = new User();
+        modelAndView.addObject("user", user);
+        modelAndView.setViewName("signup");
+        
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public ModelAndView createNewUser(User user,, BindingResult bindingResult) {
+       ModelAndView modelAndView = new ModelAndView();
+       User userExists = userService.findUserByEmail(user.getEmail());
+       if (userExists != null) {
+           bindingResult.rejectValue("email", "error.user", "There is already a user registered with the username provided");
+       }
+       if (bindingResult.hasErrors()) {
+           modelAndView.setViewName("signup");
+       } else {
+           userService.saveUser(user);
+           modelAndView.addObject("successMessage", "User has been registered successfully");
+           modelAndView.addObjectc("user", newnUser());
+           modelAndView.setViewName("login");
+       }
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+    public ModelAndView dashboard() {
+      ModelAndView modelAndView = new ModelAndView();
+      Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+      User user = userService.findUserByEmail(auth.getName());
+      modelAndView.addObject("currentUser", user);
+      modelAndView.addObject("fullName", "Welcome" + user.getFullname());
+      modelAndView.addObject("adminMessage", "centent Available only Users with Admin Role");
+      modelAndView.setViewName("dashboard");
+      return modelAndView;
+    }
+  
+    @RequestMapping(value = "/", "/home", method = RequestMethod.GET)
+    public ModelAndView home() {
+      ModelAndView modelAndView = new ModelAndView();
+      modelAndView.setViewName("home");
+      return modelAndView;
+    }
+}
+
+step6:add a configuration for spring MVC and security:
+package:com.demo.project.configs
+class:PageConfig
+
+@Configuration     
+public class Pageconfig implements WebMyConfigurer {
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+      BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPAsswordEncoder();
+      return bCryptPasswordWncoder;
+    }
+   
+    @Override
+    public void addViewControllers(ViewControllerRegistry) {
+      registry.addViewController("/home").setViewName("home");
+      registry.addViewController("/").setViewName("home");
+      registry.addViewController("/dashboard").setViewName("dashboard");
+      registry.addViewController("/login").setViewName("login");
+   }
+}
+
+6.2:
+package:com.demo.project.configs
+class:WebSecurityConfig
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigureAdapter {
+
+     @Autowired
+     private BcryptPassWordEncoder bCryptPasswordEncoder;
+
+     @Autowired
+     CustomizeAuthenticationSuccessHandler customizeAuthenticationSuccessHandler;
+
+     @Bean
+     public UserDetailsService mongoUserDetails() {
+         return new CustomUserDetailsService();
+     }
+
+     @Override
+     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+         UserDetailsService userDetailsService = mongoUserDetails();
+         auth
+               .userDetailsService(userDetailsService)
+               .password(Encoder(bCryptPasswordEncoder);
+     }
+
+     @Override
+     protected void configure(HttpSecurity http) throws Exception {
+         http
+               .authorizeRequests()
+               .antMatchers("/").permitAll 
+               .antMatchers("/login").permitAll 
+               .antMatchers("/signup").permitAll 
+               .antMatchers("/dashboard/**").hasAuthority("ADMIN").anyRequest()
+               .authenticated().and().csrf().disable().formLogin().successHandler(customizeAuthenticationSuccess
+               .loginPage("/login").failureUrl(/login?error=true")
+               .usernameParameter("email")
+               .passwordParameter("password")
+               .and().logout()
+               .logoutRequestMatcher(new AntathRequestMatcher("/logout"))
+               .logoutSuccessUrl("/".and().exceptionHandling();
+   
+     }
+
+     @Override
+     public void configure(WebSecurity web) throws Exception {
+         web
+               .ignoring()
+               .antMatchers("/resources/**", "/static/**", "/css**", "/js/**", "/imajes/**");
+     }
+} 
+
+6.3:
+class:CustomizeAuthenticationSuccessHandler
+
+public class CustomizeAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+         
+     @Override
+     public void onAuthenticationSuccess(HttpServletRequest request, HttpResponse response, Authentication authentication) throws IOException, ServletException {
+            response.setStatues(HttpServletResponse.SC_OK);
+            
+            for (GrantedAuthority auth : authentication.getAuthorities()) {
+               if ("ADMIN".equals(auth.getAuthority())) {
+                    response.sendRedirect("/dashboad");
+               }
+            }
+       }
+}
+
+step7:create all required spring mvc views with bootstrap:
+Application.java
+
+@SpringBootApplication
+public class ProjectApplication{
+   public static void main(String[] args) {
+       SpringApplication.run(ProjectApplication.class, args);
+   }
+ 
+   @Bean
+   CommandLineRunner init(RoleRepository roleRepository) {
+       return args -> {
+          Role adminRole = roleRepository.findByRole("ADMIN");
+          if (adminRole == null) {  
+             Role newAdminRole = new Role();
+             newAdminRole.setRole("ADMIN");
+             roleRepository.save(newAdminRole);
+          }
+          
+          Role userRole = roleRepository.findByRole("USER");
+          if (userRole == null) {  
+             Role newUserRole = new Role();
+             newUserRole.setRole("USER");
+             roleRepository.save(newUserRole);
+          }
+    }
+}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

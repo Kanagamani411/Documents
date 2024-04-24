@@ -1,0 +1,158 @@
+Why:
+   easy to work with
+   flexible
+   seperation of concern
+
+every servlet behaves like controlers and jsp behave like view
+
+Spring MVC
+    you have to create only ur controller(login,logout,add,multiplication)all should mentioned as @Controller
+spring mvc will provide front controller->DispatcherServlet
+all request have to send to DSevlet.
+
+Client--->(request)--->web.xml--->(request)--->DServlet-->(req)Login(model and view name goes to Dservlet)
+
+Example:
+
+
+ we have to mention org.springframework.web.servlet.DispatcherServlet
+ we have to mention servlet tag and servlet-mapping tag      
+1. we need dependency in pom.xml in our project
+ junit dependency for testiong our application
+
+2.spring mvc libraries required    
+3.if you want to connect you application with database u required this dependency 
+<dependency><groupId>mysql</groupId><artifactId>mysql-connector-java</artifactId><version>5.1.36</version></dependency>
+4.u may need to work with jstl
+
+we code in index.jsp that goes to web.xml call the DispatcherServlet that send that request to some class(create class in main(add()))cls name:AddController
+<servlet-name>-servlet.xml
+
+we have to create a configuration file for dispatcher servlet (type of file is xml)file name->  <servlet-name>-servlet.xml
+
+we need to configure bean
+whenever call for add mvc need to search for com.telusko(package name), it should work with annotation configure
+
+RequestMapping:
+  404(filenotfound error)
+how ur apllication know which method to call so we haveto use @Controller annotation which defines this is the controller.
+also mention the request for which request you are executing the method, u have to specify  every tym u call add method @RequestMapping annotation("/add")
+
+Thats how you can map your appication from html page(jsp) to AddController
+
+You have to create a page(display.jsp) and the u call that page (in add class public string add() { return "display.jsp";}
+
+
+Model and View:
+
+we have to create 2 object
+1.toget,2.topost
+
+@Controller
+public class AddController {
+
+@RequestMapping
+public ModelAndView add(HttpServletRequest,HttpServletResponse)
+{
+   int i = Integer.parseInt(request.getParameter("t1"));
+
+   int j = Integer.parseInt(request.getParameter("t2"));   
+   
+   int k = i + j;
+we need to send this values to display page(need model obj)
+
+   ModelAndView  mv = new ModelAndView();
+whenever u work with this obj u need 2 things
+
+   mv.setViewName("display.jsp"); which view u have to call
+   mv.addObject("result",k);  what data u need to pass.(label,data)
+
+   return mv;
+}
+}
+isELIgnore(to avoid error) in display .jsp
+
+all logical will happen in service class in different package
+class(AddService)
+                        
+@Controller
+public class AddController {
+
+@RequestMapping
+public ModelAndView add(HttpServletRequest,HttpServletResponse)
+{
+   int i = Integer.parseInt(request.getParameter("t1"));
+
+   int j = Integer.parseInt(request.getParameter("t2"));   
+   
+   AddService as = new AddService();
+   int k = as.add(i,j);
+
+we need to send this values to display page(need model obj)
+
+   ModelAndView  mv = new ModelAndView();
+whenever u work with this obj u need 2 things
+
+   mv.setViewName("display.jsp"); which view u have to call
+   mv.addObject("result",k);  what data u need to pass.(label,data)
+
+   return mv;
+}
+}         
+
+you r creating login form and fetch current stock marcket price u can ask your service class do that for you. 
+
+
+Annotations:
+
+req send to web.xml(main) it forward the req to dispatcher that send it 
+to servlet.xml(in this  part we r saying that all the req will be mapped with the help of componants , it will be annotations(addcontroller))
+
+
+RequestParam:
+
+
+
+TeluskoConfif.java:
+
+@Configuration
+@ComponentScan({"com.telusko"})
+
+
+
+Validation:
+  restrict the inputs provided by the user
+
+Bean Validation:
+
+@Valid : apply the validation rules for the objects. 
+@NotNull : It cannot be null but it can be empty(charsequence,collection,map,array).
+@NotEmpty : cant be null cant be empty(charsequence,collection,map,array)
+@NotBlank : canot be empty cant be null(String)
+@Size : fixing range by min =, max=.
+@Email :
+              
+Custom validation:
+   We can create our own validation annotations.
+@password
+
+
+Hibernate valitator :
+
+
+
+JUNIT & MOCKITO:
+
+For testing we have to create fake obj of some other class which was dependant.
+
+when(service.add(2,3)).thenReturn(5);
+asasertEqual(10, c.perform(2,3));
+Verify(service.add(2,3); call mock(method)
+
+we have to inject all the dependency in pom.xml
+Mokito(class)
+
+@Mock
+CalculatorService service;
+@Rule public Mockito rule = MockitoUnit.rule();  -->i am using junit and mockito together..
+

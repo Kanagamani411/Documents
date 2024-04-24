@@ -1,0 +1,301 @@
+IQ Preperation:
+
+Java:
+
+JDK-> 
+jdk is a Java development kit that allow us to develop a java application and execute it.
+it includes Jre, compiler, interpreter/loaders(java), archeiver(jar), documentation generator(javadoc).
+
+JRE->
+jre is a java runtime environment. is an instalation package. JRE is a environment where we can run our java program.
+It includes development tools and JVM
+
+JVM->
+JVM is a java virtual machine. jvm load the main method. It analyses the code step by step.
+java compiler compiles the source code(Exam.java) to byte code (Exam.class). it convert into machine code.
+
+compiler(javac compiler) compile the source code (.java file) into byte code(.class file) 
+ and then loader(interpreter) fetch the byte code into jvm then byte code verifier verifies the code
+ and execution executre then JIT(just in time) convert it to machine code then it comes as output.
+java independent language bcs bytecode created in windows can be run in linux.(wore).
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+==  :
+it will refers to the momory for objects.
+eg:
+String a = "you";
+String b = new String("you");  
+a==b -> false
+
+String d = new String("you");
+String f = new String("you");
+System.out.println(d.equals(f)); -> true 
+System.out.println(d==f); false
+
+it will check values for variables.
+int a = 10;
+float b = 10;
+a==b -> true
+
+===:
+
+equals():
+it will check the value of the objects.
+we cant use it for primitive data types.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+Main method:
+ Every program needs a place to start its execution; talking about Java programs, that’s the main method.
+Syntax:
+ public static void main(String[] args){
+
+ }
+
+Access Modifiers:
+
+refer: https://www.geeksforgeeks.org/access-modifiers-java/
+
+  Access modifiers are the keywords that restrict the scope of the class, variable, method, constructor. It provide the accessibility and security to the user based on the access modifiers of the element.
+
+types:
+
+default(no keyword required):
+  accesible within the packages.
+
+public
+  accessible everywhere in the program from diferent packages also.
+
+private
+
+refer: https://www.w3schools.blog/private-class-in-java
+
+  accessible within the class.
+  the keyword applied to methods and variable
+  for class it is applied for nested class.
+
+protected
+  accessible within the subclass of same package / different packages.
+  not class level i think.
+
+Non-Access modifiers:
+refer: https://www.geeksforgeeks.org/non-access-modifiers-in-java/
+static
+final
+abstract
+synchronized
+volatile
+transient
+native
+
+
+Static:
+
+Void:
+ void method is a method that does not return any value.
+ we can do some actions/operations.
+ we can print the values using syso.
+
+class Demo2 {
+	
+	public static void add(int a, int b) {
+		System.out.println(a+b);
+                // return a+b; will give error
+	}
+
+	public static void main(String args[])  
+    {  
+        //Demo1 obj = new Demo1();  
+        // Trying to access private method 
+        // of another class  
+        //obj.display();  
+		add(2,4);
+    }  
+}
+
+ 
+Non-void method:
+  It returns the specific return type data.
+
+class Demo2 {
+	
+	public static int add(int a, int b) {
+		//System.out.println(a+b);
+		return a+b;
+	}
+
+	public static void main(String args[])  
+    {    
+	  System.out.println(add(2,4));
+    }  
+}
+
+
+Main:
+
+String[] args:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------->
+Memory management:
+
+Heap memory:
+
+Stack memory:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------->
+Primitive data type:
+
+Non=Primitive data type:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+What is Variable?
+    variable is used to store the data.
+    int age = 23
+
+    _ and $ are allowed as variable name.
+
+    A variable is a container which holds the value while the Java program is executed.
+    A variable is assigned with a data type. Variable is a name of memory location. 
+    There are three types of variables in java: local, instance and static.
+
+Types of Variables?
+
+reference:
+https://www.geeksforgeeks.org/variables-in-java/
+
+Local Variable:
+      A variable should be declared inside a method/function/constructor.
+      initialization is mandatory.
+Instance Variable:
+      A variable should be declared inside a class and outside a method/function/contructor.
+      initialization is not mandatory.
+      variable created when object initialization and destroyed when object destruction.
+Static Variable:
+      A variable should be declared as static keyword present inside a class and outside a method/function/constructor.
+      initialization is not mandatory.
+      no need to create object we can call variable using class name.
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------->
+Garbage collection:
+
+refer: https://www.javatpoint.com/java-garbage-collection-interview-questions
+
+GC:
+GC used in memory management. It free up the unused space in heap memory.
+It removes the unused object.
+
+note: we cannot force GC. But, we can request by System.gc(); or Runtime.getRuntime().gc();
+
+Why finalize() method is used? 
+   finalize() method releases system resources before the garbage collector runs for a specific object.
+   JVM allows finalize() to be invoked only once per object.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+1.What are the different ways to create String objects?
+  there are 2 ways.
+
+  1. String literal:
+      String s1 = "Code";
+  -> this will store/create obj in the string constant pool in heap memory.
+
+  2. New keyword:
+      String s2 = new String("Code");
+     it will store in heap memory
+     create object in heap memory.
+
+note: string literls cannot be static.
+      SCP is created when the class is loaded by the JVM and is destroyed when the JVM shuts down. SCP is not accessible by the garbage collector, so even if a String object does not have any references pointing to it, it will not be eligible for garbage collection if it is in SCP.
+  
+2. What is String Constant Pool?
+     The memory space allocated in the heap memory to store the string literals is called String constant pool.
+     No two objects in scp holds same values. 
+     eg: s1="code"; s3="code" -> System.out.println(s1==s3); -> true
+      
+     It will return the reference of the String.It will point to the value.
+     It provides memory reuse instead creating new object for same values and wasting space in heap.
+
+3. Why java provide SCP as we can store the objectts in heap memory?
+    SCP provide the facility of reusability for the existing string objects.
+    When a new string object is created using the string literals, then JVM first checks in the pool if this string already exists or not.
+    If it exists, then it will reference the existing string rather than creating a new object.
+    This will help in the speeding up of the application and also help in saving the memory as no two objects will have the same content.
+
+4. how many objects created in this code?
+   #1 String a = new String("code");
+      ans is 2.
+      1 in heap, 1 in pool.for reusable concept it creating 2 times.
+      it will point to heap only and scp is unused but Gc is not allowed to delete the object in scp.
+
+   #2 String a = new String("code");
+      String b = "code";
+      answer is 2.
+      b in scp
+      a in heap. no new object is created as it is created already in b.
+    
+   #3 String a = new String("code");
+      String b = new String("code");
+      answer is 3.
+      a is created both in scp and heap
+      b is created in heap. code already created in scp by a.
+
+5. How to compare two strings in java?
+     equal() method. it compares the values of the 2 strings.
+     another method also there that is == but is is used to compare the references in the memory.
+
+6. What does String intern() method do?
+     the intern() method put the string(which is passed to the intern method) into the scp.
+     when the intern method is invoked, if the string constant pool already contains a string equal to the string object as determined by the equals(object) method, the string from the pool is returned.
+otherwise, the string object as added to the pool and reference to the string object is returned.
+
+ String b = new String("code");
+ Stirng c = "code";
+ String d = b.intern();
+ b==d false
+ c==d true.
+reason:
+ b is stored in both heap and scp
+ c point to the code which created by b
+ intern point to the copy of b in scp(which is d is point to c)
+ so both c and d point to code in scp.
+
+ex2:
+
+public class StringPool {
+
+	public static void main(String[] args) {
+		String a= new String("hi");
+		String b = a.intern();
+		String c = "hi";
+		System.out.println(b==c); true
+	}
+}
+
+7. Why String is immutable in java?
+     means unmodifiable and unchangable.
+     Security is the major reason why strings in java are made to be immutable. String in jva can be used to access data sources like files, databases, or even objects found across networks. Even sometimes string stores username and password, which cant be modified once created.
+
+understanding: scp is possible because of string is immutable and 
+String s = "code";
+s = s+ "new";
+then s point to new str in scp so old will unused and inside scp GC also cannot called waste of memory and specially for security purpost string immutable.
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------->
+Monolithic application:
+
+
+Microservices:
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+Springboot:
+

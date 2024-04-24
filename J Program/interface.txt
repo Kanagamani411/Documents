@@ -1,0 +1,78 @@
+Interface:
+   interface is a collection of only abstract method.
+   if i want to use interface in my program, i have to implements this interface with my normal or concrete class.
+   implementing normal class must providing a defintion for all the abstract method from interface. 
+   interface is only declaration, we cannot create object but interface i we can create a refrence with a help of subclass object either by normal or DMD method.
+   in interface we cannot define constructor but we can declare a constructor.
+   u can have variable in interface but it should be public, static & final.
+   a normal class can implement multiple interfaces.
+
+
+interface MyInterface
+{
+    int a = 10;                       //public, static & final
+    void abstractMethod1();           //public & abstract
+    void abstractMethod2();
+}
+
+class NewClass implements MyInterface
+{
+      public void abstractMethod1()                 //overriding abstract method
+      {
+          System.out.println(" In method1");
+      }
+      public void abstractMethod2()
+      {
+          System.out.println(" In method2");
+      }
+}
+
+public class InterfaceDemo
+{
+     public static void main(String[] args)
+     {
+         MyInterface obj1 = new NewClass();
+         NewClass obj2 = new NewClass();
+
+         obj2.abstractMethod1();
+         obj2.abstractMethod2();
+     }
+}
+
+#2
+
+interface MyInterface_1
+{
+    void abstractMethod1();           //public & abstract
+
+}
+
+interface MyInterface_2
+{
+    void abstractMethod2();
+}
+
+class NewClass implements MyInterface_1, MyInterface_2
+{
+      public void abstractMethod1()                 //overriding abstract method
+      {
+          System.out.println(" In method1");
+      }
+      public void abstractMethod2()
+      {
+          System.out.println(" In method2");
+      }
+}
+
+public class InterfaceDemo
+{
+     public static void main(String[] args)
+     {
+         MyInterface_1 obj = new NewClass();
+         MyInterface_2 obj1 = new NewClass();
+         NewClass obj2 = new NewClass();
+
+         obj2.abstractMethod_1();
+         obj2.abstractMethod_2();
+     }
+}

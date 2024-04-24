@@ -1,0 +1,170 @@
+JVM:
+  java virtual machine
+ compiler(javac compiler) compile the source code (.java file) into byte code(.class file) 
+ and then loader(interpreter) fetch the byte code into jvm then byte code verifier verifies the code
+ and execution executre then JIT(just in time) convert it to machine code then it comes as output.
+java independent language bcs bytecode created in windows can be run in linux.(wore)
+
+java.time:
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format;
+
+public class DateTimeDemo
+{
+    public static void main(String[] args)
+    {
+        LocalDate ld = LocalDate.now();
+        System.out.println(ld);
+
+        LocalTime lt = LocalTime.now();
+        System.out.println(lt);
+
+        LocalDateTime ldt = LocalDateTime.now();
+        System.out.println(ldt);
+
+        //LocalDate sld = LocalDate.of(1976, 12, 23);
+        LocalDate sld = LocalDate.of(1976, Month.DECEMBER, 23);
+        System.out.println(sld);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+        //System.out.println(sld.format(dtf));
+        String strDate = sld.format(dft);
+        System.out.println(strDate);
+
+        LocalDate parsedDate = LocalDate.parse(strDate, dtf);
+        System.out.println(parsedDate);
+
+        ZonedDateTime zdt = ZonedDateTime.now();
+        System.out.println(zdt);
+
+        ZonedDateTime centralEstern = LocalDateTime.now().atZoneId.of("CET"));
+        System.out.println(centralEstern);
+
+        for(String zone : ZoneId.getAvailableZoneIds()) {
+            System.out.println(zone);
+        }
+
+     }
+}
+op:
+
+2021-11-21
+16:14:54.542
+2021-11-21T16:14:54.542
+1976-12-23
+23-Dec-1976
+1976-12-23
+
+
+Java 8:
+Java 8 features:
+
+lamda expression
+functional interface
+stream api
+forEach method
+default/static methods
+
+
+Lamda Expression:
+   anonymous function
+   no method name
+   lamda expression is a anonymous function which has no method name and return type and access modifiers.
+   and not belongs to any class.
+   it is usd to implement functional interface.
+   used to reduce boiler plate code.
+   lamda exp value can be assigned to a reference variable.
+
+  we can pass lamda expression as a parameter in a method.
+  print(()->System.out.println("square class: draw method"));
+
+
+
+  lamda expression:
+  () -> {};
+  ()  this is input parameter
+  ->  this is arrow or lamda
+  {}  this is body
+
+  
+
+Functional Interface:
+   Functional interface is an interface that contains exactly only one abstract method 
+   and having any number of default and static methods.
+
+  predefined methods:
+
+  - Function  ->  it takes 2 parameters as generic. one is input 2 is output. having some methods like apply().
+  - Consumer  -> 1 parameter that is input. having accept() method.
+  - Supplier  -> 1 parameter that is output. having get() method.
+  - Predicate -> 1 parameter having test() method.   -> boolean test(T t);
+
+
+Stream API:
+
+   stream represents sequence of objects from a resourse which supports aggragate operation.
+   java provide java.util.stream package. this package supports classes,interface,enum which allows functional style operations on elements.
+   
+   How stream works?
+      
+       source   filter  sort   map   collect
+
+create stream objects:
+ Stream<Strinng> stream = List.of("a","b","c");
+ syso(stream);
+ 
+create stream source
+ Collection<String> collection = Arrays.asList("name","id","city");
+ 
+
+filter:
+#1
+List<Laptop> list = getLaptops()
+    .Stream().filter((laptop)->laptop.getName() >30000)
+    .collect(collectors.toList());
+
+list.forEach(System.out::println);
+
+#2
+getLaptops()
+    .stream().filter((laptop)->laptop.getName() >30000)
+    .forEach(System.out::println);
+
+#3
+.filter(n->n%2==1)  ->refer FI that having Predicate method  ->lamda exp
+
+Predicate<Integer> predi = new Predicate<>(){        //old method
+      @Override
+      boolean test(Integer n){
+         if(n%2==1)
+            return true;
+         else
+            return false;
+     }
+}
+
+.filter(predi)
+
+
+sort:
+
+
+For-Each:
+    It is another way of array iteration like for loop,while loop....
+    instead of using incrementing..
+     use type variable to store the value followed by a colon and array name.
+
+   ex:
+    List<String> names = List.of("amutha","birundha","abi","ganga","maha");
+
+    for(String str : names){
+       System.out.println(str);
+    }
+
+    names.forEach(n->System.out.println(n));   //forEach refer functional interface Consumer<T>  -> accept() method.
+
+
+

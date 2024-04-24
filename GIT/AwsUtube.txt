@@ -1,0 +1,67 @@
+reference:
+https://www.youtube.com/watch?v=eZeNIakuqbc
+
+AWS:
+Amazon Web Service:
+    Aws is a cloud provider that offers vareity of services such as compute power, database storage,
+    content delivery and other resources to help business scalw and grow.
+
+What is Cloud?
+    storagage platform over internet.
+Types of services:
+
+EC2:
+used in netflix
+local drive take the video from s3 and play it.
+
+S3:
+storage purpose
+
+Lamda:
+whenever video uploaded it take from s3 and take pictures of the video and store it in seperate folder.
+
+DynamoDB:
+used to store session data 
+ex: if we pause a video, it will store the data and give continue watching after we come.
+
+SNS:
+we dont need to wait for the action completed like when we play video or upddate iur name like it. #decouple
+
+IAM - Identity and Access Management :
+users, groups, roles, policies
+iam gives the particular access to particular member.
+User:
+members is it and admin can create users
+groups:
+we can create admin group, user group, group for testers like that
+roles:
+it gives the access to the services
+policies:
+it assign the policies to the users or admin etc..
+
+in IAM always give least privillage
+if we create new user give only necessary access
+
+create aws account:
+i think root account 
+
+create iam account:
+
+not exact command
+CLI: commant promt
+aws --version
+aws configure
+list_users
+
+SDK -> python
+import boto3
+client .....("iam")
+user_list
+
+Avoid getting bills:
+some services might bill cost so we can set alert when cost bill getting more than setting amount.
+
+Amazon EC2:
+
+
+Elastic BeanStack:

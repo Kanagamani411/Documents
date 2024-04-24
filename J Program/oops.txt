@@ -1,0 +1,47 @@
+Oops-> Object oriented programming language. oops is a programmig paradigm .
+It has main concepts that are 
+1.Inheritance
+2.Abstraction
+3.Polymorphism
+4.Encapsulation
+
+oops concepts
+
+Object:
+
+Class:
+
+Inheritance:
+
+Abstraction:
+
+Polymorphism:
+
+Encapsulation:
+
+Cohesion:
+
+Coupling:
+
+Aggregation:
+
+Association:
+
+Modifiers:
+
+Constructor:
+
+Variables:
+
+DataTypes:
+
+
+need to see:
+
+super
+method calling
+object calling
+interface
+abstract
+polimorphism
+inheritance.

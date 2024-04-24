@@ -1,0 +1,10 @@
+ctrl + s -> save
+shift + f10 -> right click
+ctrl + c -> copy
+ctrl + v -> paste
+ctrl + z -> previous
+ctrl + x -> cut
+ctrl + + -> zoom
+ctrl + - -> unzoom
+
+type main, ctrl + space -> main method

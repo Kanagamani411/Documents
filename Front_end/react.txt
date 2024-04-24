@@ -1,0 +1,95 @@
+ SPA-> single page application
+DOM document object model
+
+npx create-react-app my-app
+cd my-app
+npm start
+
+Editing ur react code in visual studio code command the below linw in your command promt
+cd
+my-app code.
+
+ES6 -> write less do more
+  classes,arrow funtion,variables(let,const,var).
+
+index.js:
+Class:
+class Demo{
+   methodone()
+   {
+      var a=5;
+      var b=10;
+      var c=a+b;
+      document.getElementById('root').innerHTML=c;
+   }
+}
+
+var mydemo = new Demo();
+mydemo.methodone();
+
+Arrow fuction:
+
+ var a= function()
+ {
+    
+      var a=5;
+      var b=10;
+      var c=a+b;
+      document.getElementById('root').innerHTML=c;
+ }
+a();
+
+#2
+var a= (x) =>
+ {
+    
+      var a=5;
+      var b=10;
+      var c=a+b+x;
+      document.getElementById('root').innerHTML=c;
+ }
+a(5);
+
+Variable:
+
+var n= () =>
+ {
+    
+    var a=5;
+      if(a===5)
+      {
+         var a=10;
+      }
+      document.getElementById('root').innerHTML=a;
+ }
+n   op:10
+
+#2
+
+var n= () =>
+ {
+    
+    var a=5;
+      if(a===5)
+      {
+         let a=10;
+      }
+      document.getElementById('root').innerHTML=a;
+ }
+n()  op:5
+
+#3
+var n= () =>
+ {
+    
+    var a=5;
+      if(a===5)
+      {
+         let a=10;   ->inside the block
+         document.getElementById('root').innerHTML=a;
+      }
+      //document.getElementById('root').innerHTML=a;
+ }
+n()   op:10
+
+

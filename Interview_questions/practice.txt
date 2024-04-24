@@ -1,0 +1,168 @@
+1. Why spring is special?
+      because of dependency injection or Iversion of control(IOC). 
+      we dont need to create object using classname, instead we can use autowired for dependency injection.
+public class ClientBOImpl im[plements ClientBO {
+      @Autiwired
+      ProductDO productDO;
+
+      productDO = new ClientBOImpl;
+}
+
+     It gives integration with other frameworks.
+     it provide the flexibility.
+
+2.jdk,jre,jvm:
+JDK:
+Java developement kit-> It is a software developement kit to develop a java program/application.
+jdk contains jre and debugger,compiler,javadoc,keytool.
+
+JRE:
+Java Runtime Environment-> is used to run java program.platform independent.it contains JVM and class libraries.dont have compiler so it can only run a java program in anywhere any machine.
+
+JVM:
+Java Virtual Machine-> it is used to convert a bite code to machine code.platform dependent.
+
+3.Why java is not a pure object oriented laguage?
+pre defined data types are not objects in java.
+
+7.why main() method in java is public static?
+Static:
+jvm loads classes so it load the static class.
+static doesnt need the class to create object.jvm can load the class without creating instance of a class.
+
+if main method is non-static then jvm confuses which constructor to be called.it will create a ambiguity.
+
+Public:
+We all know that anyone can access public access modifier. if the main method is pubic then only JVM can call it otherwise don't.
+
+8.Can we overload main() in java?
+
+Yes, We can overload main() method in java.
+Jvm search for the String[] args method so there is no ambiguity problem occur.
+
+Main method have a signature of
+ public static  void(String[] args)
+
+9.Can we declare a main method other than public?
+ No, We cannot. Because, main() method should be accesible to JVM.
+It will show runtime error if we put as private ,protected, default.
+
+10.can we declare main() method as non static?
+No, We can't. if we remove the ststic from main method then the compilation will successful but throw the runtime error.
+
+11. Can the main method have differet arguments?
+No, only can have String[] args or No-args(nothing but array String... args
+
+12.can we run java program without main mathod?
+No, from java 7 we cannot run java program without main method.
+before java release we had static initializer as an alternative.
+
+public class MainDemo{
+  static{
+      System.out.println("Static Initializer");
+      System.exit(0);
+  }
+}
+
+13.can we use different return type other than void in main method?
+No, We can't.
+
+14.Can we have main method as final?
+Yes, we can have main() method as final.
+public static final void main(String[] args)
+we canot override the main method.
+
+Java Array interview questions and answers:
+
+15.
+
+String questions:
+
+25.What is string in java?
+      String is sequence of characters. String is an object.
+      It is immutable, once string object created then we cannot modify them.
+      String objects are stored in heap memory.
+
+26.What are the ways to create Strings?
+      there are 2 ways to create strings.
+    1. String Literals
+         String str = "Hello";
+    2. new keyword
+         String str = new String("Hello");
+
+27.What is string constant pool?
+
+      String str1 = "Hello";
+      String str2 = new String("Hello");
+      String str3 = "Hello";
+    
+    String created by using literals are stored in String constant pool in heap memory.
+    str1 and 3 are having same word 1st str1 stored in string pool 
+      then str3 is stored and then not storing it then return the reference to the instance.
+
+28.Strings are thread safe?
+      yes. strings are immutable that means constants. when multiple threads try to access a method string that remain constant is called thread safe.
+      strinng is thread safe.
+
+29.difference btw == and equals() ?
+       == is an operator
+       equals() is a method.
+
+       == is check the address of the 2 variable.
+       equals() checks the value of the 2 variable
+
+30.What is muttable and immutable?
+      muttable: mutable objects can be changed after its created.
+      immutable: immutable objects cannot be changed after its created.
+                  string immutable injava, we can chANGE the object as immutable using final and private keywords.
+
+31.Diference btw String and StringBuilder?
+      String is immutable                      SB is mutable
+      thread safe                              not thread safe
+      slow incase of multiple concadanation    fast
+      consume more memory (create new obj)
+32.Diference btw String and StringBuffer?
+      String is immutable     SB is mutable
+      string pool memory       heap memory
+      
+33.Difference btw StringBuilder and StringBuffer?
+       not thread safe                thread safe
+       faster                         slow in case of thread safe
+
+34. What does the string intern() method do?
+
+    If you want to store the string obj in string pool you can use intern method.
+      String s1= "abc";
+      String s2= new String("abc");
+      String s3= s2.intern();
+      s1==s3 true.
+
+35.why does String is popular key for hasmap?
+      string is immutable. on the time of object creation hashcode is calculated so there is no need to calculate it again and again.
+
+36.Difference btw List and Set:
+
+    List                                                                   Set
+    contains duplicates values                                      not allow duplicate values
+    ordered collections, follow insertion order                     unordered collection, follow random order.
+    list implementations are: arrayList,LinkedList,                 set implementations are: hashSet, LinkedHashSet,TreeHashSet....
+    vector,stack.
+    can have multiple null values                                   can have one null value at max.
+
+
+37.
+                             
+
+    
+ 
+
+
+
+
+
+
+
+
+
+
+

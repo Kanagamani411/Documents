@@ -1,0 +1,75 @@
+Exception:
+    which affects the normal flow of the program.
+    exception can be handled by a developer.
+
+Exception Handling:
+
+1.Checked
+2.Unchecked
+3.Error
+   cannot be handle by a developer.
+
+Checked Exception:
+
+IOException
+   occurs when user not giving the input
+
+SQLException
+
+Uncheked exception:
+
+FileNotFoundException
+   occurs when tried to open the file or read the file, the file doesn't exists.
+
+ArithmeticException
+   k=i/j    j->0
+   cannot divided by zero
+
+public class ArithDemo {
+
+	public static void main(String[] args) {
+		int a,b,c;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter value for a");
+		a = sc.nextInt();
+		System.out.println("Enter value for b");
+		b=sc.nextInt();
+		
+		try {
+			c=a/b;
+			System.out.println(c);
+		}catch(ArithmeticException e){
+			System.out.println("cannot divided by zero");
+		}
+		//System.out.println(c);
+		sc.close();
+	}
+}
+
+NullPointerException
+   trying to access null value
+
+NumberFormateException
+   
+
+ArrayIndexOutOfFoundException
+   int[] arr = new int[3];
+   arr[4] = 5;    ->error
+
+
+Try and Catch:
+
+Try:
+  A block where a critical statement to be write
+
+Catch:
+  Exception thrown inside try block will be catched in catch block
+  we have to mention the exception in catch block.
+
+note:
+  when we dont know that what exception occured we can use simply (Exception e).
+
+BuildIn exception
+userdefined exception
+
+

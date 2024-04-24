@@ -1,0 +1,26 @@
+Components - Ampiece of UI
+eg: app->navbar,profile,trends,comments,tweet,like
+class Tweet {
+   state = {};
+   render() {        ......> react element
+   }
+}
+
+angular is a framework
+react is a view library
+
+create-react-app react-app
+Creating a new React App in react app.
+developmnt server,webpack,babel.
+
+npm start             //comments
+npm run build
+npm test
+npm run eject
+cd react-app
+npm start
+
+
+form handing
+ http ibrary
+if u wnt handle forms in clas componant

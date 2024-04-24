@@ -1,0 +1,108 @@
+What is spring:
+   Spring is a opensource framework for java application. it is best platform for java enterprise edition.
+   Spring helps the developer to create powerful aplication using POJO class.
+   It is light weight,loosely coupled.
+   it gives Spring mvc, depndency injection.
+
+What is Spring boot:
+    Spring boot makes it easy to create standalone, production grade spring based applications that you can just run.
+    we take opiniated view of the spring platform.
+
+Difference btw Spring and Springboot:
+    Spring is a huge framwork has many projects.
+    Spring Boot is a Spring’s project
+    Spring Boot provides a set of libraries that greatly simplifies development of Spring-based apps
+    You can create Spring-based apps without or with Spring Boot
+    Use Spring Boot is easier and more productive.
+
+Loosely and Tightly Coupled:
+   loosely coupled system has distributed memory, whereas, the tightly coupled system has shared memory.
+   loosely coupled: when obj gets the obj to be used from the outside.
+   Tightly cou[led: when obj create the obj to be used.main obj create the obj itself.
+
+What is Dependency Injection:
+   is a design pattern
+   which obj dependent which obj
+   we just inject external services
+
+   injecting objects into other objects. It allows loosely coupled.
+   Advantage:
+       avoids tight coupling, unit testing will be easier one.
+
+What is Maven:
+   Maven is a build tool. If you want to create a new project in which you want to  project structure you want something that will compile
+   your files u want something to test ur application and u want something which will give you required libraries.
+   download the jar files for us.
+
+Features of Spring:
+   Opensource
+   comprehensive tool
+   light weight  (runtime polimorphism, has-a relationship->interface)
+   solve problems
+   frameworks of framework
+   avails array of resources
+   web layer, coomon layer, service layer, data layer
+
+Features of SpringBoot:
+   Web Development
+   SpringApplication
+   Externalized Configuration
+   Security
+
+What is the advantage of using Spring Boot?
+   Spring Boot allows us to externalize our configuration so that we can work with the same application in different environments.
+   Application use YAML files to externalize configuration.
+   Spring Boot provides rich set of Application Properties.
+
+Maven plugin:
+   central feature of maven
+   where every task is actually done by plugins. Maven Plugins are generally used to −
+
+   create jar file
+   create war file
+   compile code files
+   unit testing of code
+   create project documentation
+   create project reports
+   provide a set of goals
+   build,reporting plugin
+
+What is Junit:
+   JUnit is a unit testing framework for the Java programming language.
+   The java programmer can create test cases and test his/her own code. 
+   
+
+What is Mockito:
+   Mockito is a mocking framework, JAVA-based library that is used for effective unit testing of JAVA applications.
+   In other words, mocking is a testing technique where mock objects are used instead of real objects for testing purposes.
+   Mock objects provide a specific (dummy) output for a particular (dummy) input passed to it.
+
+
+What is Unit Testing:
+   UNIT TESTING is a type of software testing where individual units or components of a software are tested. 
+   The purpose is to validate that each unit of the software code performs as expected.
+
+What is code quality:
+   checking the quality of the code whether the code is good or bad.
+
+What is Spring MVC:
+
+
+
+What is Spring REST:
+
+
+
+What is Spring Security:
+
+
+Annotations:
+
+
+
+
+
+
+
+
+

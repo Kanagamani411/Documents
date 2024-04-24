@@ -1,0 +1,243 @@
+Annotation series 2:
+
+from java guides:
+-xml based configuration
+-annotation based configuration
+- java based configuration
+
+@Component:
+  this annotation is annotation based configuation.
+  when a class annotated with @ component annotation thwn that class is spring bean/component.
+  this annotation tells the spring container to create automatically spring bean.
+
+@Component
+public class PizzaController{
+    public String getPizza() {
+         return "hot Pizza";
+    }
+}
+
+here PizzaController is a spring bean/component.
+by default the bean name is pizzaController(it takes first letter as small)
+
+So, spring ioc container taking care of creating and maintaining the object for a particular class.
+
+
+@Autowired:
+
+   @Autowired annotation is used to inject a bean automatically.
+   
+   this annotation is used to constructor injection, setter injection, field injection.
+
+   @Component
+   public class VegPizza{
+      public String getPizza(){
+         return "Hot Pizza";
+      }
+   }
+
+   
+   public class PizzaController{
+      
+      // this is field injection
+      @Autowired
+      private VegPizza vegPizza;
+
+      // this is constructor injection
+      private VegPizza vegPizza;
+
+      @Autowired
+      public PizzaController(VegPizza vegPizza){
+         this.vegPizza = vegPizza;
+      }
+
+      //setter injection
+      private VegPizza vegPizza;
+
+      @Autowired
+      public void setPizza(VegPizza vegPizza){
+         this.vegPizza = vegPizza;
+      }
+
+      //compulsary
+      public String getPizza(){
+            return vegPizza.getPizza();
+      }
+   }
+
+
+3.@Qualifier:
+
+     this annotation is used in conjunction with @Autowired annotation to avoid confusion where we have two or more 
+     beans configured for same type.
+
+     service package:
+     
+     interface:
+     public interface Pizza{
+         public String getPizza();
+     }
+
+     class:
+     @Component
+     public class VegPizza implements Pizza{
+         @Override
+         public String getPizza(){
+             return "veg pizza";
+         }
+     }
+         
+     class:
+     @Component
+     public class NonvegPizza implements Pizza{
+         @Override
+         public String getPizza(){
+             return "nonveg pizza";
+         }
+     }
+
+     //controller class
+     @Component
+     public class PizzaController{
+
+      // this is constructor injection
+      private Pizza pizza;
+
+      @Autowired
+      public PizzaController(@Qualifier("vegPizza") Pizza pizza){
+         this.pizza = pizza;
+      }
+
+      //compulsary
+      public String getPizza(){
+            return pizza.getPizza();
+      }
+   }
+
+4.@Primary:
+     this annotation is used to give higher preference to a bean when
+     there are multiple beans available on same type.
+   
+     service package:
+     
+     interface:
+     public interface Pizza{
+         public String getPizza();
+     }
+
+     class:
+     @Component
+     public class VegPizza implements Pizza{
+         @Override
+         public String getPizza(){
+             return "veg pizza";
+         }
+     }
+         
+     class:
+     @Component
+     @Primary
+     public class NonvegPizza implements Pizza{
+         @Override
+         public String getPizza(){
+             return "nonveg pizza";
+         }
+     }
+
+     //controller class
+     @Component
+     public class PizzaController{
+
+      // this is constructor injection
+      private Pizza pizza;
+
+      @Autowired
+      public PizzaController(Pizza pizza){
+         this.pizza = pizza;
+      }
+
+      //compulsary
+      public String getPizza(){
+            return pizza.getPizza();
+      }
+   }
+
+
+5.@Bean:
+     this annotation indicates a method produces a bean to be handled by spring container.
+     it is usually declared in configuration class to create spring bean definitions.
+
+     by default, bean name is same as method name. we can define bean name @Bean(name:"bean name").
+     
+     @Bean annotation provides initMethod and destroyMethod attributes to perform certain actions after bean initialization or 
+     before bean destruction by a container.
+    
+     @Configuration
+     public class AppConfiq {
+         @Bean      //java bean
+         public Pizza vegPizza() {
+              return new vegPizza;
+         }
+     }
+
+     service package:
+     
+     interface:
+     public interface Pizza{
+         public String getPizza();
+     }
+
+     class:
+    //remove @Component
+     public class VegPizza implements Pizza{
+         @Override
+         public String getPizza(){
+             return "veg pizza";
+         }
+     }
+         
+     class:
+     //@Component      //annotation bean
+     //@Primary
+     public class NonvegPizza implements Pizza{
+         @Override
+         public String getPizza(){
+             return "nonveg pizza";
+         }
+     }
+
+     //controller class
+     @Component
+     public class PizzaController{
+
+      // this is constructor injection
+      private Pizza pizza;
+
+      @Autowired
+      public PizzaController(Pizza pizza){
+         this.pizza = pizza;
+      }
+
+      //compulsary
+      public String getPizza(){
+            return pizza.getPizza();
+      }
+   }
+       
+6.Stereotype Annotation:
+     these annotations are used to create spring bean automatically in application context(Spring IOC Container).
+
+@Component:
+     The main stereotype annotation is @Component.
+     by using this annotation spring provide more meta annotation
+     such as @Controller, @Service, @Repository.
+
+@Controller:
+   this annotation is used to create spring bean at controller layer.
+
+@Service:
+   this annotation is used to create spring bean at service layer.
+
+@Repository:
+   this annotation is used to create spring bean at repository layer.
+

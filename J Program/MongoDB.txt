@@ -1,0 +1,52 @@
+MongoDB:
+
+MongoDB is a NoSQL cross platform document oriented database.
+it is written by c++
+data records stored in bson format that is binary representation of json, though it contains more data types than json.
+ 
+Organized as Database->collection->document.
+
+_id
+  primary key
+
+collection
+   it is like table in rdbms
+
+database
+
+document
+   it is like row in rdbms
+
+field
+   it is like column in rdbms
+
+show dbs;
+use users;  if we dont have database as users it will create.
+            //switched to db users
+
+
+how to create database:
+
+use database_name
+
+current db name:
+
+db
+
+insert data:
+
+posts  ->collection name
+insertOne  ->method
+
+db.posts.insertOne({
+   "Id" : 1,
+   "Title" : "World",
+   "Gender" : "Female",
+   "Name" : "Kanagamani",
+   "Tags" : [
+    "java",
+    "mongoDB"
+    ]
+})
+
+

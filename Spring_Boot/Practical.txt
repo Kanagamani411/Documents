@@ -1,0 +1,127 @@
+Springboot+Spring security +JWT:
+
+spring-security-jwt - artifactid
+
+how to JWT auth in spring security :
+Spring Initializr(bootstrap your aoolication)
+
+web dependency
+security dependency
+We r going to seed a user, gonna  use user service mrthod are overriding the defualt user behaviour, create data service.
+1.creating java class-HelloResource.java(inside simple public String hello() method under @Controller class->@REquestMapping("/hello"))
+(rest api).
+2.creating security class-SecurityConfigure.java(extends WebSecurityConfigureAdapter)
+
+public class SecurityConfigurer extendss WebSecurityConfigurerAdapter {
+   @Autowired
+   Private MyUserDetailsService myUserDetailsService;  ->calls the class 3
+   @Override
+   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+       auth.userDetailsService(myUserDetailsService);
+   }
+   @Bean
+   public PasswordEncoder passwordEncoder() {
+       return NoOpPasswordEncoder.getInstance();
+   }
+ }
+3.service class-MyUserDetailsService.java 
+
+@Service
+public class MyUserDetailsService implements UserDetailsService {
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return new User("foo","foo",new ArrayList<>());
+    }
+}
+
+user crendial based authendication we did.
+
+4.SpingSecurityJwtApplication.java
+ 
+@SpringBootApplication
+public class SpringSecurityJwtApplication {
+   public static void main(String[] args) { SpringApplication.run(SpringSecurityJwtAppplication)
+}
+
+We need to add JWT inpom.xml
+jjwt->create jwt, and validate existing jwt.
+jaxb-api->using java 9 or new version u need to add this
+classpath
+
+5.SpringSecurityJwtApplicationTests - 
+
+6.Util class-jwtUtil.java
+     which can abstract all the jwt stuffs
+     we r gonna create jwt for userDetails
+     generateToken gonna call private createToken method that pass to the map which is empty, and createToken cal the jwts.buider()
+     and .set claims.set subject and .set expiration time
+     .signwith(SignatureAlgorithm.HS256, SECRET_KEY -> string).compact();
+
+Step 1: A/authenticate API endpoint
+   -Accepts user ID and password
+   -Returns JWT as response
+
+Models->AuthenticationRequest.java
+
+public class AuthenticationRequest {    ->gonna define the input argument to user method
+    private String username;
+    private String password;
+  // create getters ans setters
+  //create constructor with argument and without argument
+
+}
+
+models->AuthenticationResponse.java
+
+public class AuthenticationResponse {
+
+    private final String jwt;     ->json web token
+    
+    public AuthenticationResponse(String jwt) {
+         this.jwt = jwt;
+    }
+  
+    public String getJwt() {
+         return jwt;
+    } 
+
+util->HelloResource.java
+
+@RestController
+public class HelloResource {
+   @RequestMapping("/hello")
+   public String hello() { return "Hello orld"; }
+   @RequestMapping("/authenticate")    ->gonna taken username and password as an argument and return jwt
+    
+}
+
+Step:2 - Intercept all incoming requests
+
+ - Extract JWT from the Header
+ - Validate and set in execution context
+
+filters-> JwtRequestFilter.java    // gonna intercept every request just once and examin in the header 
+
+dont create sessions because  create jwt is to make system stateless
+
+POST ->http://localhost:8080/authenticate   ->body: jwt : link
+GET  ->http://localhost:8080/hello
+
+    KEY                       VALUE                 DESCRIPTION
+    Context-Type              application/json
+    Authorizarion             Bearer jwt->link          //filter seach for jwt and send it to context and come to to get api user authenticated
+
+body : Hello World
+
+there is no session
+
+Objectives:
+   - create a new authntication API endpoint
+   - examine every incoming request for valid JWT and authorize
+
+header?
+Security context?
+classpath?
+
+bearer?
+chain.doFilte(request,response);

@@ -1,0 +1,50 @@
+Abstract class:
+    its a partialy completed class or incomple class.
+    abstract class is a collection of concrete method and abstract method(only declaration).
+    jvm not allowing as ti create object for abstract class. can create reference.
+    abstract classs is equal to concrete class plus abstract method(we can define constructor,declare var,define static method).
+
+abstract class MyAbstractClass
+{
+   MyAbstractClass(int a)
+   { 
+       System.out.println("in constructor");
+   }
+    void myNormalMethod()
+    {
+       System.out.println("in normalmethod");
+     }
+     abstract void myMethod_1();
+     abstract void myMethod_2();
+}
+
+class NewClass extends MyAbstractClass
+{
+    NewClass()
+    {
+        super(5);
+    }
+    void myMethod_1()
+    {
+       System.out.println("in method_1");
+    }
+
+    void myMethod_2()
+    {
+       System.out.println("in method_2");
+    }
+}
+
+public class AbstractDemo
+{   
+    public static void main(String[] args)
+    {
+        MyAbstract obj = new NewClass();
+
+        NormalClass obj2 = new NewClass();
+
+        obj2.myNormalMethod();
+        obj2.myMethod_1();
+        obj2.myMethod_2();
+    }
+}

@@ -1,0 +1,22 @@
+static is a keyword which is used in java with member variable and member function
+we can call those member without using object.dont need to intantiate class.
+
+public class StaticDemo {
+   public static void main(String[] args)
+   {
+       Abc.show(); 
+    }
+}
+
+class Abc
+{  
+    static int i = 6;
+    public static void show()
+    {
+        System.out.println("hello");
+        System.out.println(i);                          // we cant call i here if its not a static var.
+
+    }
+}
+
+we can overload static methods.

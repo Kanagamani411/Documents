@@ -1,0 +1,100 @@
+App.js(root)
+App,js is a component, inside App.js will show in weppage
+
+function component is used for static(menu navbar)
+class component is used for dynamic, fetch the dat from server
+
+Function App() is a parent component
+
+#4 JSX  -> javascript + html
+
+babel support jsx
+
+#5 Props:
+-> Function parameters
+ex: employee
+id,name are properties
+
+mobile
+colur,brand
+
+immport Reacr from 'react';
+function Employee(props) {
+   return() 
+       <div>
+           <h1> Hello , {props.name}</h1>
+           <h1> your empId , {props.empid}</h1>
+       </div>
+   
+}
+
+export default Employee;
+
+//ReactDom.render(<Employee name='Raj' empid={1000}/>, document.getElementById('root'));
+
+if ur component is class component we mention props as this.props.name 
+inside render()
+
+#6 parent-child:
+we can pass date from p to c
+
+p:
+
+import Skills from ./Skills;
+
+<Skills empskill=javadev></Skills>
+
+child:
+
+<h1> myskill={props.empskill}</h1>
+
+const Fulldetails(props) => {
+
+#7 State
+dynamic interactive.
+we can modify,re render.
+class level.
+inside constructor
+ this.setState({
+id:"1001"
+});  -> like this we can change
+
+
+
+File > Settings > Plugins > Browse repositories... > Search for "valueToYml" > Install Plugin
+
+
+Event:
+
+ifarrow function is used there is no need to use bind(this)
+we can bind it in constructor or where method called.
+
+this used to mention the event and also provide all the info
+ funtion(e) {
+    
+#9  Hooks (useState):
+
+const [count, setCount] = useState(0); 
+
+#10 React Lyfecycle:
+
+1.componentDidMount - constructor, render   ->server data axios keyword
+2.componentDidUpdate - render
+3.componentWillUnmount
+
+effectState -> only function componnet
+
+redux:
+state stored 
+connect 2 components using flux 
+
+React logger, auth, promise
+
+store,reducer,action,state
+
+#12 List and Keys:
+
+write outside return.
+
+
+

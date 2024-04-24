@@ -1,0 +1,126 @@
+light weight, open source framework.
+*simplicity
+*testability
+*loosely coupled(one obj not depend on another obj)
+
+it supports ui,business,backend layer for implementations.
+it  supports front and back end. 
+
+its non-invasive means it doesnt force a programmer to extend or implement their classes.
+
+dependancy injection:(we just inject external services)
+if we create a projrct one obj depent another obj.
+
+spring container
+@component in springboot will help to make dependance
+
+{
+@autowired
+obj;
+}
+
+we have to create mock obj for loose coupling.
+
+Maven:
+build tool
+
+we need mysql connector(dependancy) to connect database with java application
+
+dependancy-> jar files 
+it gives spring, hibernate dependancy
+
+
+1.project
+2.groupid-package name-com.telusko
+3.artifactid-unique-proj name-demo
+4.package-com.telusko.demo.web
+
+mvm repository:
+spring dependancy dow;oad from remote repository.
+in maven if u ask for dependancy it search from local and if its not in locsl then go to remote repository.
+
+maven practical:
+
+Maven is a build tool. If you want to create a new project in which you want to  project structure you want something that will compile
+your files u want something to test ur application and u want something which will give you required libraries.
+
+spring.io for libraries
+
+new maven project:
+maven has all the jar files.
+ org.apache.maven.       .webapp -> to build web application
+.quickstart -> core java application
+all org types.
+jar downoad from remote repository.
+
+Maven dependensies(junit-3.8.1.jar-/user/navin/m2/repositoryopen terminal and type navin$ ls -navin proj name
+navin$ clear
+navin$ ls -a  --> .m2
+navin$ cd .m2
+ls
+junit/
+ls
+cd junit/
+ls
+
+pom.xml main part of maven
+all configuration in pom.xml
+{
+<groupId>com.navin</groupId>
+<artifactId>Telusko</artifact>
+<version>0.0.1-SNAPSHOT</version>
+<packaging>jar</packaging>
+} inside pom.xml
+
+spring core framework tutorial applicationcontext:
+spring provide web application, dependancy injection(instead of u create each dependancy u can ask others for dependancy)
+
+spring framework
+ interface( BeanFactory(small application), ApplicationContext(web,enterprice application))
+AC is superset of BF.
+
+ApplicationContext context = new ClassPathXmlApplicationContext();
+
+vehicle obj = getBean("vehicle");
+
+after using AC
+vehicle obj = (vehicle)context.getBean("vehicle");
+obj.drive();
+
+
+What is Spring framework:
+    Framework is a predefines API
+spring framework create the object itself, we dont need to construct it.
+
+java frameworks:
+   spring
+   maven
+   hibernate
+   struct
+   Spring is a complete and a modular framework for developing enterprise applications in java.
+it is used for all the layer implementation also single layr implementation of s psrticulsr resl time application
+
+Features of spring:
+   Opensource
+   comprehensive tool
+   light weight  (runtime polimorphism, has-a relationship->interface)
+   solve problems
+   frameworks of framework
+    avails array of resources
+web layer, coomon layer, service layer, data layer
+
+Architecture:
+modules:
+20
+core container---> core,beans,spEL, context
+data access/ integration
+web
+AOP
+instrumentation
+test
+
+
+SPRING TUTOTIAL:
+    
+
+

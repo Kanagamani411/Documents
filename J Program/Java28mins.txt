@@ -1,0 +1,52 @@
+Java tutorial:
+
+Variable:
+   var whose value is changing over the life time of the program.
+type of var is followed by the name of var.
+
+type name = value;
+int num = 10;
+
+types of variables:
+
+refer: https://www.geeksforgeeks.org/variables-in-java/
+
+local variable:
+ presence inside of a block, function or method. initialization important
+int a =10;
+
+instance variable:
+ presense inside a class outside a method. initialization not imp. default value 0.
+we can use access modifiers.
+public int a; ->0
+public int a = 10;
+
+static variable:
+
+same as instance variable we use static keyword.
+it is fixed value.
+ public static int a = 10;
+
+
+default value of int 0, boolean false, object null.
+
+
+
+Data Types:
+
+refer: https://www.javatpoint.com/java-data-types
+ 
+primitive:
+
+boolean one = false;  ->1byte
+int a = 10;           ->4bytes
+float f = 234.5f;     ->4bytes
+double d = 23.8;      ->8bytes
+long i = 10L;          ->8bytes
+short s = 10;          ->2bytes
+byte b = 10;           ->1byte
+char aA= 'A';          ->2bytes
+
+Non-primitive:
+classes, arrays, interface.
+

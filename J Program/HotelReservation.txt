@@ -1,0 +1,6 @@
+project name : HotelReservation1
+groupp name : com.example
+artifactid : HotelReservation1
+package name : com.example.HotelReservation1
+
+dependency:

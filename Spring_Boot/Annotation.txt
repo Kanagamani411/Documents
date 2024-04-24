@@ -1,0 +1,82 @@
+Annotations:
+
+@SpringBootApplication
+     It is used to enable those 3 features
+     1.@EnableAutoConfiguration : enable Springboot's auto configuration mechanism.(tells how you want to configure spring,
+                             based on the jars that you have added in your classpath(pom.xml)).
+     2.@ComponentScan : enable @Component scan on the package where the appllication is located(Searching packages for components)
+     3.@Configuration : Where we can define the bean definition inside the class, so that spring ioc can loaded.
+
+Stereotype Annotation:
+    Basically these annotations are used to create spring bean automatically in application context. 
+    If you annotate any of the annotation on the top of your spring bean then spring will scan that bean and manages it life cycle 
+    begin from object creation to object destroy.
+
+@Component : indicates that a class might be a candidate for creating a bean.(main, other based on the component)
+
+@Service : We can easily identify that this is the class where i need to write business class
+
+@Controller : It is used to mark classes as Spring MVC Controller
+
+@RestController : Specialised version of @Component annotation. It is a combination of @Controller and @ResponseBody.
+                  It is a special controller used in RESTful Web Services.
+
+@Repository : This is whre i need to write database logic.
+
+
+Spring Core related Annotations:
+
+@Configuration : Annotating a class with the @Configuration indicates that the class can be used by the 
+Spring IoC container as a source of bean definitions.
+
+@Bean : which is applied on a method to specify that it returns a bean to be managed by Spring context.
+        Spring Bean annotation is usually declared in Configuration classes methods.
+
+@Autowired : It allows Spring to resolve and inject collaborating beans into our bean
+
+@Qualifier : when you create more than one bean of the same type and want to wire only one of them with a property.
+             In such cases, you can use the @Qualifier annotation along with @Autowired to remove the confusion by 
+             specifying which exact bean will be wired.
+
+@Lazy : @Lazy annotation indicates whether a bean is to be lazily initialized. It can be used on @Component and @Bean definitions.
+
+@Value :  which is used to assign default values to variables and method arguments. 
+          We can read spring environment variables as well as system variables using @Value annotation
+
+@PropertySource : Used to provide properties file to Spring Environment. This annotation is used with @Configuration classes. 
+                  Spring PropertySource annotation is repeatable, means you can have multiple PropertySource on a Configuration class.
+
+@ConfigurationProperties :  allows to map the entire Properties and Yaml files into an object easily.
+                            It also allows to validate properties with JSR-303 bean validation.
+
+@Profile : The @Profile annotation indicates that a component is eligible for registration when the specified profile or profiles are active.
+
+@Scope : When the Spring Framework creates a bean, it associates a scope with the bean.
+         A scope defines the runtime context within which the bean instance is available.
+
+
+
+@PathVariable : Allows you to read values/data from URI, like query parameter.
+
+@RequestParam : Used to read the HTML form data/query parameter provided by a user and bind it to the request parameter.
+
+
+@Valid : This annotation is used to apply validation rules on the given object.automatically implement the JSR 380 validation.
+
+@RequestMapping : This annotation maps HTTP requests to handler methods of MVC and REST controllers.
+@GetMapping : This annotation maps HTTP GET requests onto specific handler methods.
+              It is a composed annotation that acts as a shortcut for @RequestMapping (method = RequestMethod.GET)
+@PutMapping : This annotation to map HTTP PUT requests onto specific handler methods. 
+              It is a composed annotation that acts as a shortcut for @RequestMapping (method = RequestMethod.PUT).
+@PostMapping : This annotation maps HTTP POST requests onto specific handler methods.
+               It is a composed annotation that acts as a shortcut for @RequestMapping (method = RequestMethod.POST).
+
+@ModelAttribute : It binds the method parameter or return value with named model attribute.
+@ResponseBody : Spring converts the return value and writes it to the HTTP response automatically. 
+                Each method in the Controller class must be annotated with @ResponseBody.
+@RequestBody : The @RequestBody method parameter annotation indicates that a method parameter
+               should be bound to the value of the HTTP request body.
+
+@Pattern : Validate the sequence of user input with regular expression(regexp).
+@Min : Used in number validation. User input must be equal to or greater than the value.
+@Max : Used in number validation. User input must be equal to or less than the value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

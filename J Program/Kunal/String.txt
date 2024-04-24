@@ -1,0 +1,20 @@
+String:
+
+Scanner sc = new Scanner(System.in);
+String fruit = sc.next();
+
+-> for String user input kewword is next().
+
+equals:
+  String fruit1 = "mangoes";
+  if (fruit1.equals("mango"){
+      System.out.println("same strings");
+  } else {
+      System.out.println("different strings");
+  }
+      
+-> equals() checks the characters(value) of the string.
+-> == checks the reference of the string.
+
+String pool:
+

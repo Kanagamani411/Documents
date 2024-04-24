@@ -1,0 +1,34 @@
+microservice:
+    it splits its architecture into multiple applications.
+    each ms has own datamodel and data 
+    no singe point failure.
+
+
+docker:
+    docker is a tool designed to make it easier to create, deploy, and run applications by using containers.
+
+container:
+    Containers allow a developer to package up an applications with all of the parts it needs, such as libraries and other dependancies.
+and ship it all out as one package.
+
+interface:
+    means it is an ege or boundary where two system/ parties can meet and exchange inforation.
+
+Api:
+    it is a set of definition and protocols that allow one application to communicate with another.
+
+web api:
+    similarly web service, web api is an API available on web
+    Api refers to web api.
+    web service and web api both serve as means of communication for two machins over internet.
+
+spring data jpa:
+    
+     persistance means storage.
+     perstant operations:
+          insert update, delete, retrieve data.
+Spring MVC:
+     it is a java framework. it follows the model view controller design pattern.
+     it also implements all the basic features of a core spring framework like inversion control, Dependency Injection.
+
+

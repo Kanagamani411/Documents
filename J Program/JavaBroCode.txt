@@ -1,0 +1,40 @@
+JavaBroCode:
+
+What is Java:
+   Java is programming language which support Object Oriented Programming.
+   
+What is oops:
+   Object oriented programming system is a programming paradigm which has main methods of class,object,inheritance,polimorphism,abstraction,encapsulation.
+
+Why Java?
+   Top most programming language
+   used to develop web application, antroid application, game development....
+   platform indepenndent(a java program created in one software can run on diferent platform).
+   
+
+JDK -> Java Devlopment Kit.
+       it is a development tool.used to create java application.
+       along with JRE, JDK has javaDebugger,compiler.javadoc...
+       it execute the java code.
+
+    |_>JRE  -> Java Runtime Environment.
+               it has java libraries along with JVM.
+               It create the environment for execute java code
+               it is an implementation of JVM.
+               
+ 
+           |_>JVM  -> Java virtual machine.
+               it convert java byte code into machine code.
+               platform independent.
+               it gives implementation to jre.
+
+ How java code run?
+     first java compiler converts java source code(java.file) into byte code(class.file) and then Jvm convert the byte code into machine code(011000)
+     then it display the result.
+
+
+IDE -> Integrated development environment.
+    A software that help us to write software.
+    we have 1 software where we can type compile run in same software that is ide.
+    ex: IntelliJ IDEA, Spring tool suite, Eclipse....
+

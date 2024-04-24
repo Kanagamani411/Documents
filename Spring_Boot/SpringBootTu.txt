@@ -1,0 +1,16 @@
+Router Components Service(Axios Http Library) <->
+Controller layer <-> Service layer <-> Repository/DAO layer <-> DB
+
+Controller:
+   In controller we build REST APIs using Spring MVC.
+   controller holds spring mvc.
+
+Service :
+   It holds all the business logic. apart that if you have any call to 
+    the third party rest api also keep that logic in service layer.
+
+Repository:
+   It holds the database related logic. It has the responsiple 
+    to talk with the database.
+   
+

@@ -1,0 +1,6 @@
+Escape Sequence:
+
+/"   /"  -> it will print the double quote.
+
+/n create new line
+/t create tab space

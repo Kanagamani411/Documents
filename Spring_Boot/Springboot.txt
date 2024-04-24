@@ -1,0 +1,278 @@
+Springboot:
+   Spring boot makes it easy to create stansalone, production grade spring based applications that you can just run.
+   we take opiniated view of the spring platform.
+
+Configuration:
+JAR files:
+   -> java archieve files ->zip files containing java class files.
+Spring integrate all other frameworks like hibernate and structs.
+Spring features:
+
+1.POJO : Class-Private variables->getter setter methods
+   plai old java object is an class definition that is not tied to any framework so any java program can use it.
+   primary advantage is reusability and simplisity.
+
+2.Dependency Injection :
+3 types
+1.constructor injection:
+2.
+
+3.REST API
+4.MVC    :  OS->model(responsiple for storing and retrieving data),
+            Moniter->view(responsible for rendering of model - UI),
+            Controller(Responsible for responding to the user input and instructiing the model to respond to the user input).
+5.Security : 
+
+Design patterns:
+  
+Turorial:
+
+client->httpRequest-un,pwd(server consider as obj)->server
+                        (as response)client<-XML/JSON<-
+
+request: temperature of an mobile(loc,timezone)
+response: State of an object - XML/JSON send as response using rest api
+
+Http methods: POST,GET,PUT,DELETE  ->rest api
+CRUD :CREATE,READ,UPDATE,DELETE    ->db
+
+Dependency Injection:
+   is a design pattern
+   which obj dependent which obj
+
+   injecting objects into other objects. It allows loosely coupled.
+   Advantage:
+       avoids tight coupling, unit testing will be easier one.
+       @Component @Autowired @Qualifier.
+       seperate web server not needed for springboot
+       no WAR files Configuration and management
+       War files/Jar files
+       bill of materials - each version should match with others?
+       Server: Apache Tomcat
+       Auto-Configuration
+       STS - Spring Tool Suite
+       mvn repository - we can download jar files
+
+Maven: download the jar files for us.
+
+C:\Users\Muthu\.m2\repository   ->local repository in windows
+
+
+@Component
+class Home {
+  @Autowired
+  @Qualifier(" ")
+  Netconnection modem;
+  
+  Home h = new Home();
+}
+interface NetConnection
+{
+    
+}
+
+@Component                               //create object in spring container
+class BSNL implements NetConnection
+{
+
+}
+
+@Component                             // 2 objects created in spring container for bsnl an dairtel here we use @qualifire to choose one obj.
+class Airtell implements NetConnection
+{
+
+}
+
+Practical: Spring Tool Suite
+
+Spring dependency injection:
+   spring web - for web application
+   thyme Leaf - front end
+   spring data jpa - connect the spring data with db   
+   h2 built in
+   springboot actuator - for debugging
+
+Singleton Scope - create one obj in spring container
+
+@Scope(value="prototype")  --> create more than one bean in container
+|classpath scan->call the class with @component
+vSpringApplication.run()-> set the default configurtion
+                        -> starts the Spring Application context
+                        ->starts Tomcat server,stops
+                        ->Class Path Scan
+
+Servlet:
+
+client->req as html file goes to server.inside server we have web container inside that we have multiple servlet(java file) that returns the response as html.
+if we send dynamic req as html file , web.xml help us to choose which servlet gonna reponse.
+web.xml->deployment descriptor.
+
+<servlet>
+    <servlet-name>contactUs</servlet-name>
+    <servlet-class>contactUsServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+</servlet>
+<servlet-mapping>
+      <servlet-name>contactUs</servlet-name>
+      <url-pattern>/contact</url-pattern>
+</servlet-mapping>
+
+Istead of web.xml we use annottion.
+
+@WebServlet("/contactus.html")
+public class ContactUsServlet extends HttpServlet {
+   public void service(HttpSerletRequest req, HttpServeltResponse res) throws ServletException, IOException {
+          int n1 = req.getParameter("no1");
+          int n2 = req.getParameter("no2");
+          int result = n1 + n2;
+         
+          out.println("<Html><head><body><title>");
+
+          out.println("<text color="red">"+ result);
+
+   }
+}
+
+@WebServlet("/multiply")
+public class MultiplicationServlet extends HttpServlet {
+   public void service(HttpSerletRequest req, HttpServeltResponse res) throws ServletException, IOException {
+          int installment = Integer.parseInt(req.getParameter("no1"));
+          int months = Integer.parseInt(req.getParameter("no2"));
+          int total = installment * months;
+          PrintWriter out = res .getWriter
+          out.println(total);
+         
+          //out.println("<Html><head><body><title>");
+
+          //out.println("<text color="red">"+ result);
+
+   }
+}
+
+
+in contactus.jsp:
+
+<body>
+ <%       int installment = Integer.parseInt(request.getParameter("no1"));
+          int months = Integer.parseInt(request.getParameter("no2"));
+          int total = installment * months;
+          PrintWriter out = res .getWriter
+          out.println(total);
+%>
+</body>
+
+.html:
+
+<html>
+<body>
+<title>
+<form action = "contactus.jsp" method="get">
+Enter emi <input type = "text" name="n1"> <br>
+Enter months <input type = "text" name="n2"> <br>
+
+<input type = "submit">
+</form>
+<body>
+<title>
+<html>
+
+Spring MVC:
+
+Model View Controller
+
+Advantage:
+Easy
+Flexible
+Seperation of Concerns
+Project Flow
+
+Gmail:
+controllers:
+login sign up compose inbox sent items draft chat
+
+Spring MVC Architecture:
+client->req->web.xml->dispatcher Servlet(front controller)->controllers->Model Service(DAO)->database
+controller return the model obj and view to the front controller.->view resolver->client.(json,xml,html).
+spring-config.xml->view resolver,controller.
+jasper jar file convert the servlet java file to html file.(model,view).
+
+Handler Mapping handles the controlers->@Controller annotation
+Dispatcher servlet send the req to the coresponding controller with the help o fHandler mapping.
+
+localhost:8080\index ->mywebsite
+
+
+Http Session:
+
+Security
+Traffic
+User login credential
+
+JSTL->JSP Standard Tag Library
+${username}
+
+single  query: http://localhost:8080/index?uname=Kaxkanav
+multiple: http://localhost:8080/index?uname=Kaxkanav&psd=abc
+
+#2
+@Controller
+public class IndexController {
+	@RequestMapping("index")
+	public String index(@RequestParam("uname") String login,
+			            @RequestParam("psd") String pass,HttpSession session)
+	{
+		//HttpSession session = request.getSession();
+		//String s = request.getParameter("name");
+		session.setAttribute("username", login);
+		session.setAttribute("password", pass);
+		return "index";
+	}
+
+}
+
+#3
+@Controller
+public class IndexController {
+	@RequestMapping("index")
+	public ModelAndView index(UserDetails ud)
+	{
+		//HttpSession session = request.getSession();
+		//String s = request.getParameter("name");
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("details", ud);
+        mav.setViewName("index");		
+		
+		//session.setAttribute("username", login);
+		
+		return mav;
+		//session.setAttribute("password", pass);
+		//return "index";
+	}
+
+}
+
+Spring boot MVC - Db
+
+H2 Database
+JPA -> Java Persistence API
+it is used to connect the java and database using API.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

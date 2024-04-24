@@ -1,0 +1,3 @@
+ArrayList<Employee> a= new ArrayList<Employee>();
+Employee e= new Employee("Raj","100");
+a.add(e);

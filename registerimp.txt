@@ -1,0 +1,253 @@
+App.js
+
+import React ,{useState} from 'react';
+import {useFormik} from 'formik';
+import './App.css';
+import Popup from './Components/Popup';
+const validate = values => {
+  const errors = {};
+  if(!values.firstname){
+    errors.firstname = "*Required";
+  } else if(values.firstname.length > 8) {
+    errors.firstname = "*Must be 8 characters or less";
+  }
+  if(!values.lastname){
+    errors.lastname = "*Required";
+  } else if(values.lastname.length > 8) {
+    errors.lastname = "*Must be 8 characters or less";
+  }  
+  if(!values.email) {
+    errors.email = "*Required";
+  } else if(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(values.email)) {
+    errors.email = "*Invalid Email Address";
+  }
+  if(!values.password) {
+    errors.password = "*Required";
+  } else if(values.password.length > 8) {
+    errors.password = "*Maximum 8 characters";
+  } else if(values.password.length < 4) {
+    errors.password = "*Minimum 4 characters";
+  }
+  if(!values.confirmpassword) {
+    errors.confirmpassword = "*Required";
+  } else if(values.password !== values.confirmpassword) {
+    errors.confirmpassword = "*Password must match";
+  }
+  return errors;
+}
+const App = () =>{
+  const [bool,setBool] = useState(0);
+  const formik = useFormik({
+    initialValues : {
+      firstname : '',
+      lastname : '',
+      email : '',
+      password : '',
+      confirmpassword : '',
+    },
+    validate,
+    onSubmit : (values , {resetForm}) =>{
+      if(bool){
+        setBool(0);
+        resetForm({values : ''})
+      } else {
+        setBool(1);
+        console.log(values);
+      }
+    }
+  });
+  return(
+    <div className = "main">
+      <div className = "SignUp-form">
+        <h2>Sign Up Here</h2>
+        <form onSubmit = {formik.handleSubmit}>
+          <input type="text"
+          placeholder="FirstName" name="firstname" 
+          autoComplete="off" onChange={formik.handleChange} 
+          value = {formik.values.firstname} onBlur = {formik.handleBlur}/>
+          {
+            formik.touched.firstname && formik.errors.firstname ? <span>{formik.errors.firstname}</span> : null
+          }
+          <input type="text"
+          placeholder="LastName" name="lastname" 
+          autoComplete="off" onChange={formik.handleChange} value = {formik.values.lastname} onBlur={formik.handleBlur}/>
+          {
+            formik.touched.lastname && formik.errors.lastname ? <span>{formik.errors.lastname}</span> : null
+          }
+          <input type="text"
+          placeholder="Email" name="email" autoComplete="off" 
+          onChange={formik.handleChange} value = {formik.values.email} onBlur={formik.handleBlur}/>
+          {
+            formik.touched.email && formik.errors.email ? <span>{formik.errors.email}</span> : null
+          }
+          <input type="password"
+          placeholder="Password" name="password" autoComplete="off" 
+          onChange={formik.handleChange} value = {formik.values.password} onBlur={formik.handleBlur}/>
+          {
+            formik.touched.password && formik.errors.password ? <span>{formik.errors.password}</span> : null
+          }
+          <input type="password"
+          placeholder="Confirm" name="confirmpassword" autoComplete="off" 
+          onChange={formik.handleChange} value = {formik.values.confirmpassword} onBlur={formik.handleBlur}/>
+          {
+            formik.touched.confirmpassword && formik.errors.confirmpassword ? <span>{formik.errors.confirmpassword}</span> : null
+          }
+          <input type="submit"
+          value="Submit"/>
+        </form>
+      </div>
+      <div className = "message-box">
+        {
+          bool ? (<Popup onClick = {formik.handleSubmit}/>) : null
+        }
+      </div>
+    </div>
+  );
+}
+export default App;
+
+
+Popup.js
+
+import React from 'react';
+import './style.css';
+class Popup extends React.Component{
+    render(){
+        return(
+            <div className = "Popup">
+                <div className = "Popup-Inner">
+                    <h1 className = "close" onClick={this.props.onClick}>X</h1>
+                    <br/>
+                    <br/>
+                    <center>
+                        <span className ="tick">&#10003;</span>
+                    </center>
+                    <h2 className = "text2">You have <br/> Successfully Signed Up!</h2>
+                </div>
+            </div>
+        )
+    }
+}
+export default Popup;
+
+App.css
+
+body {
+  background: indigo;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h2{
+  text-align: center;
+}
+.SighUp-form {
+  max-width: 450px;
+  border-radius: 20px;
+  margin: auto;
+  background-color: rgba(0,0,0,0.8);
+  box-sizing: border-box;
+  padding: 40px;
+  color: #fff;
+  margin-top: 100px;
+}
+input[type=text],input[type=password]{
+  width: 100px;
+  box-sizing: border-box;
+  padding: 12px 10px;
+  background-color: rgba(0,0,0,0.10);
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  color:rgb(248,243,243);
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: bold;
+}
+input[type=submit]{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0;
+  margin-top:30px;
+  outline: none;
+  border: none;
+  background-color: blue;
+  opacity: 0.3;
+  border-radius: 20px;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: 1s;
+}
+input[type=submit]:hover{
+  opacity: 1;
+}
+
+style.css
+
+.Popup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+.Popup-Inner{
+    max-width: 40%;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 1px;
+    color: #fff;
+    margin-top: 250px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.text2{
+    text-align: center;
+    text-decoration: underline;
+    color: mediumblue;
+    font-size: 150%;
+}
+.close{
+    display: inline;
+    float: right;
+    padding: 0%;
+    margin: 0%;
+    border: 1px solid red;
+    cursor: pointer;
+    color: white;
+    background-color: rgba(248,21,40,0.4);
+    transition: 0.5s;
+}
+.close:hover{
+    background-color: rgba(248,21,40);
+    opacity: 1;
+}
+.tick{
+    color: green;
+    font-size: 50px;
+    border-radius: 50%;
+    border: 5px double darkgreen;
+}
+
+index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

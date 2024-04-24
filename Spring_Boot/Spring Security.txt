@@ -1,0 +1,171 @@
+we need @Controller
+download from maven repository ->tomcat jasper (converting jsp to servlet)
+
+in controller u have return login page instead of home page(name,password) 
+in pom.xml u have to add sprng-boot-starter-security dependency
+
+spring boot provide this automatically login page after download depency.
+by default user name is user and password is provided in console
+
+for creating our own login details we need to create configuration claa
+
+import org.springframework.context.annotation.Configuration
+import org.springframework.security.config.annotation.webSecurityAdapter
+
+@Configuration
+@EnableWebSecurity
+public class AppSecurity extends WebSecurityConfigurerAdapter
+{
+    @Bean
+    @Override
+    protected UserDetailsService userDetailsService() {
+         return super.userDetailsService();
+
+      
+}
+
+u need to override 2 methods one itself, 2 is userDetailsService()
+
+we also need to inject spring-boot-starter-data-jpa and
+ mysql-connector-java dependency in pom.xml.
+
+DaoAuthendicationProvider->data access object
+
+ur controller will be interact-> with service layer->dao
+
+
+Why spring security:
+  handles common vulnerabilities
+  ->session fixation
+  ->clickjacking
+  ->click site req forgery
+
+  widely adopted
+
+What spring security can do:
+  user name/password authentication
+  sso/okta/ldap
+  app level authorization
+  intra app autorization like oauth
+  microservice security(using tokens,jwt)
+  method level security(method,obj)
+
+Concepts:
+  1.Authentication - Who is this user.
+  2.Authorization - Are they allowed to do this?
+  3.Principal - Currently logged in user-Currently logged in account.
+  4.Granted Authority - 
+  5.Roles
+
+
+ we add the spring boot security starter library in pom.
+ we are login into amazon by entering user id and password
+ Filter are first to get executed upto n filter chain , after all the chain passed succes only go to spring controller
+
+important filters:
+1.Authentication
+2.Authorization
+
+1.Create spring boot app
+   and then using WebSecurityConfigureAdapter 
+   extends the custom class(MyAppSecurityConfig configure(AutheticationManagerBuilder))
+   to be connected with inmemory database(Auth database or in memory)->H2 database.
+Also create restController to secure.
+
+we add web dependency to create rest endpoints
+h2->database
+need jdbc->database drive
+spring security
+
+Step 1 : RestController
+   create class HelloController.java
+       gonna create resources(APIs for the security)
+
+@RestController
+public class HelloController {
+    @GetMapping("/")
+    public String sayHelloAll()     //anyone can access it, nologin or access restriction .
+    {
+        return "hello eveyone";     //first endpoint or first GET API
+     }
+
+    @GetMapping("/user")
+    public String sayHelloUser()     //user based api.
+    {
+        return "hello user";        //
+     }
+
+    @GetMapping("/admin")
+    public String sayHelloAdmin()     // Admin user access api.
+    {
+        return "hello admin";        //
+     }
+
+Check users in database  (backend)
+
+Class MyAppSecurityConfig.java       //important for authentication and Authorization->who can login and what access they have?
+
+@EnableWebSecurity                   //if we dont add it then bad crendial will show bcs it set password  and user default it wont take our data.
+public class MyAppSecurityConfig extends WebSecurityConfigurerAdapter     //extend spring security class
+{
+     @Autowired                      // springboot manages the db conncetion (we added h2 db in pom)
+     DataSource dataSourse;
+
+     @override
+     protected void configure(AuthenticationManagerBuilder auth) throws Exception {    
+                                 //login check happens in authenticationmanagerbuild   //configure method gives the option to call backend.
+                                 // cpmpare the logged in user with backend user using spring security
+
+           PasswordEncoder encoder = PasswordEncoderFactories.createDeligatingPasswordEncoder();   //default password encoder         
+
+
+           auth.jdbcAuthentication().             //how to setup tables in h2
+                                                 // we need 2 tables that user and authority=>Roles               
+               .dataSource(dataSource)
+               .withDefaultSchema()             //=>creates tables
+               .withUser("john")      //populate data in database
+               .password(encoder.encode("john"))      //password should be encoded
+               .roles("USER")
+               .and()                                 //setup 2 users in db
+               .withUser("admin")
+               .password(encoder.encode("admin"))      //password should be encoded
+               .roles("ADMIN")    
+                                                       //realworld application->only call authentication with datasorce
+              
+//op:    localhost:8080 -> helloall
+         localhost:8080/admin -> helloadmin
+         localhost:8080/user -> hellouser
+
+         localhost:8080/logout    // we dont need to create custom page for it.
+
+How do we restrict based on Roles?
+Role based Authorization:
+
+     }
+
+     @override                                       //overrideng another class of websecurityconfigureradapter
+     protected void configure(HttpSecurity http) throws Exception {
+         http.authorizeRequests()
+             .antMatchers("/admin").hasRole("ADMIN")                  //Access /admin only for for ADMIN role             //pattern matching
+             .antMatchers("/user").hasAnyRole("ADMIN","USER")         //Acess for both admin and user
+             .antMatchers("/").permitAll();                           //js/css file should be public                                                
+                                                                     //order is important, most restictive to least restictive.
+             
+             .antMatchers("/h2-console/**").permitAll()
+             .and().formLogin();                                     // we have differnt  logins that is Oauth based and SAML based login
+
+         http.csrf().disable();                                     //disabling csrf for enabling h2concole
+         http.headers().frameOptions().disable();
+
+
+
+
+Application.properties
+
+spring.h2.console.enabled=true       //enabling h2 console   // realword database could be oracle or db2
+
+localhost:8080/h2-console
+
+Authentication ->who can access the application
+Authorization  ->tells which role person can access which url , how we restrict the user7
+  

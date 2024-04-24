@@ -1,0 +1,39 @@
+What is collection?
+   Collection is a java framework. THat stores group of objects in single unit. Collections have readymade architecture.
+   We can do data manipuation like add delete search sort update etc....
+   It has Classes and Interfaces
+
+Need of Collection Framework:
+   Instead of creating multiple variables we can create single variable to store multiple objects.
+
+Classes
+Al,Ll,S,V
+PQ,ADeq
+HS,LHS,TS
+HT,LHM,HM,TM
+
+Interface
+
+List ->ArrayList ->LinkedList -> Stack ->Vector
+
+Queue ->PriorityQueue
+     1->Deque(I)->ArrayDeque
+
+Set  -> HashSet-> LinkedHashSet
+    l->SortedSet(I)-> TreeSet
+
+Map Hierarchy:
+
+Map-> HashTable,LinkedHashMap
+  1->SortedMap(I)->TreeMap
+
+Iterator
+
+Array:
+   Array is fixed in size 
+   It stores homogeneous data elements
+   Array is index based.
+   //limitation: Readymade APIs support is not available so collection needed.
+   syntex:
+      int[] arr = new int[50];
+   

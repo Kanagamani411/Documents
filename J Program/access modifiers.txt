@@ -1,0 +1,122 @@
+final
+abstract
+public
+private
+protected
+
+private and protected cannot be used with class.
+
+u can use private in class when its innerclass
+
+package com.kax
+class A   // defualt
+{
+
+}
+
+package com.kax
+public class Abc
+{  
+    public static void main(String[] args)
+    {
+        A ibj = new A();
+    }
+}
+
+#2
+
+package com.kanav
+class A   // defualt
+{
+                                         //error   --> we cant use the class outside of the package if it is not public.
+}
+
+package com.kax
+public class Abc
+{  
+    public static void main(String[] args)
+    {
+        A ibj = new A();
+    }
+}
+
+var, method:(pub,pri,pro)
+
+package com.kanav
+class A   // defualt
+{
+    int i;
+}
+
+package com.kax
+public class Abc
+{  
+    public static void main(String[] args)
+    {
+        A ibj = new A();
+        ibj.i = 8;               //error
+    }
+}
+
+#2
+
+package com.kanav
+class A   // defualt
+{
+    public int i;
+}
+
+package com.kax
+import com kanav.A;
+public class Abc
+{  
+    public static void main(String[] args)
+    {
+        A ibj = new A();
+        ibj.i = 8;               //noError
+    }
+}
+
+#3
+package com.kanav
+class A   // defualt
+{
+    public void method1()
+    {
+        method2();
+    }
+    
+    private void method2()
+    {
+        System.out.println("hello");
+    }
+}
+
+package com.kax
+import com.kanav.A;
+public class Abc
+{  
+    public static void main(String[] args)
+    {
+        A obj = new A();
+        obj.method1();            
+    }
+}
+
+protected:
+
+package com.kanav
+
+public class A
+{
+    protected int i;
+}
+
+class B extends A
+{
+    public void show()
+    {
+         System.out.println(i);
+    }
+}
+

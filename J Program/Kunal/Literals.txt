@@ -1,0 +1,8 @@
+Literals:
+
+every values in java is a literal.
+
+int a = 100 -> 100 is a literal
+char b = 'd' -> d is a literal 
+String s = "mango" -> string literal
+

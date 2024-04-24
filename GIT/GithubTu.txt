@@ -1,0 +1,3 @@
+Github is a platform. online website allowing us to host or git repositories.
+
+Repository is a folder where all the changes saved.

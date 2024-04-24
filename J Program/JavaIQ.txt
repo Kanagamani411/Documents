@@ -1,0 +1,58 @@
+Notes:
+under static and main method:
+//we can overload static methods.
+// We cannot create more than one public class in Class
+//if we need more than 1 class then we need to create seperate classes in a same package
+//we canot code in java without creatinng a class
+//but we can code withot creating an object
+//if a method or variable need to call without object initialization then it must be "static"
+//we can have same method name in 2 different classes in a same package
+//we cannot call a method in class from main method of same class when the method is nonStatic
+//if the method is static then we can call it directly.
+//Java does not support “directly” nested methods so we cannot write method directly inside main method but we can call methods inside main method.
+//we can call normal method from another class in our main method by creating object for the class 
+//if its static method then we directly call by classname.methodname.
+//but we cannot call normal method in main method of same class because main method is static.
+//if we want to call it we need to mention it static and we dont need to create object of calling it beacause it is static. 
+//if we want the method as nonstatic then we need to create obj in main method and then call it obj.methodname.
+
+
+What is Variable?
+    variable is used to store the data.
+    int age = 23
+
+    _ and $ are allowed as variable name.
+
+    A variable is a container which holds the value while the Java program is executed.
+    A variable is assigned with a data type. Variable is a name of memory location. 
+    There are three types of variables in java: local, instance and static.
+
+Types of Variables?
+
+reference:
+https://www.geeksforgeeks.org/variables-in-java/
+
+Local Variable:
+      A variable should be declared inside a method/function/constructor.
+      initialization is mandatory.
+Instance Variable:
+      A variable should be declared inside a class and outside a method/function/contructor.
+      initialization is not mandatory.
+      variable created when object initialization and destroyed when object destruction.
+Static Variable:
+      A variable should be declared as static keyword present inside a class and outside a method/function/constructor.
+      initialization is not mandatory.
+      no need to create object we can call variable using class name.
+
+Objact caling?
+
+Method calling?
+
+//break is only used in loops and switch in java.
+     if(true)
+        break;
+     will give error.
+// 'j' + 'a' + 'v' + 'a'  -> will give addition of ascii value.
+// "j" + 'a' + 'v' + 'a' -> will give java 
+
+
